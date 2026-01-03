@@ -18,6 +18,8 @@ This philosophy makes astr0 not just a tool, but a **learning resource**.
 
 ## Documentation Modules
 
+### Core Modules (v0.1)
+
 | Module | Description |
 |--------|-------------|
 | [Getting Started](getting-started.md) | Installation and your first calculations |
@@ -25,6 +27,25 @@ This philosophy makes astr0 not just a tool, but a **learning resource**.
 | [Coordinate Systems](coords.md) | Celestial coordinate systems and transformations |
 | [Angular Calculations](angles.md) | Working with angles, separations, and position angles |
 | [Astronomical Constants](constants.md) | Reference values used in calculations |
+
+### Celestial Bodies (v0.2)
+
+| Module | Description |
+|--------|-------------|
+| [Sun](sun.md) | Solar position, rise/set, twilight calculations |
+| [Moon](moon.md) | Lunar position, phases, rise/set times |
+
+### Observation Planning (v0.2)
+
+| Module | Description |
+|--------|-------------|
+| [Observer](observer.md) | Location management and storage |
+| [Visibility](visibility.md) | Airmass, transit, rise/set, observability |
+
+### Reference
+
+| Module | Description |
+|--------|-------------|
 | [Verbose Mode](verbose.md) | The "show your work" system |
 | [CLI Reference](cli-reference.md) | Complete command-line reference |
 | [Python API](api.md) | Using astr0 as a Python library |
@@ -39,16 +60,35 @@ This philosophy makes astr0 not just a tool, but a **learning resource**.
 astr0 time now
 ```
 
+### Where is the Sun right now?
+
+```bash
+astr0 sun position
 ```
-╭────────────────────────────────────────────╮
-│  Current Astronomical Time                 │
-├────────────────────────────────────────────┤
-│  UTC:                 2026-01-03 00:15:00 │
-│  Julian Date:              2461043.510417 │
-│  Modified JD:                61043.010417 │
-│  T (J2000):                  0.2600550411 │
-│  GMST:                     07h 05m 34.60s │
-╰────────────────────────────────────────────╯
+
+### When is sunrise and sunset?
+
+```bash
+astr0 sun rise --lat 51.5 --lon -0.1
+astr0 sun set --lat 51.5 --lon -0.1
+```
+
+### What's the Moon phase?
+
+```bash
+astr0 moon phase
+```
+
+### When is the next full moon?
+
+```bash
+astr0 moon next full
+```
+
+### Can I observe M31 tonight?
+
+```bash
+astr0 vis report "00h42m44s" "+41d16m09s" --lat 40.7 --lon -74.0
 ```
 
 ### Where is that star in Galactic coordinates?
@@ -60,8 +100,6 @@ astr0 coords transform "18h36m56s -26d54m32s" --to galactic
 ### How far apart are these two objects?
 
 ```bash
-astr0 angles sep "M31" "M33"  # Coming in v0.4!
-# For now, use coordinates:
 astr0 angles sep "00h42m44s +41d16m09s" "01h33m51s +30d39m37s"
 ```
 
@@ -71,16 +109,16 @@ astr0 angles sep "00h42m44s +41d16m09s" "01h33m51s +30d39m37s"
 
 1. **Precision First** — Every calculation uses full double precision
 2. **Show Your Work** — Verbose mode explains every step
-3. **Test Everything** — 150+ tests validate against authoritative sources
+3. **Test Everything** — 200+ tests validate against authoritative sources
 4. **Expand Gracefully** — Modular architecture for future features
 
 ---
 
 ## Version
 
-You're reading the documentation for **astr0 v0.1.0 "First Light"**.
+You're reading the documentation for **astr0 v0.2.0 "Steady Tracking"**.
 
-See the [Roadmap](../ROADMAP.md) for upcoming features including Sun/Moon calculations, planetary ephemerides, and catalog lookups.
+See the [Roadmap](../ROADMAP.md) for upcoming features including planetary ephemerides, catalog lookups, and advanced precession models.
 
 ---
 
