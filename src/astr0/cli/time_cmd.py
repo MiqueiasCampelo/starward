@@ -69,26 +69,42 @@ def now(ctx):
         t_str = f"{jd.t_j2000:.{d}f}"
         utc_str = dt.strftime('%Y-%m-%d %H:%M:%S')
         
-        # Calculate width needed (min 42 for header)
-        max_val = max(len(jd_str), len(mjd_str), len(t_str), len(gmst_str), len(utc_str))
-        width = max(42, max_val + 16)  # 16 for label and padding
-        inner = width - 4  # Account for "│  " and " │"
+        # Build rows data
+        rows = [
+            ('UTC:', utc_str),
+            ('Julian Date:', jd_str),
+            ('Modified JD:', mjd_str),
+            ('T (J2000):', t_str),
+            ('GMST:', gmst_str),
+        ]
         
-        def row(label, value):
-            return f"│  {label:<12} {value:>{inner - 14}} │"
+        # Calculate width needed
+        title = "Current Astronomical Time"
+        label_width = max(len(r[0]) for r in rows)
+        value_width = max(len(r[1]) for r in rows)
+        # Content: "│  label  value  │" - we need space for label + gap + value
+        content_width = label_width + 2 + value_width  # 2 spaces between label and value
+        inner_width = max(len(title), content_width)
         
-        border = "─" * (width - 2)
-        click.echo(f"""
-  ╭{border}╮
-  │  {'Current Astronomical Time':<{inner}} │
-  ├{border}┤
-  {row('UTC:', utc_str)}
-  {row('Julian Date:', jd_str)}
-  {row('Modified JD:', mjd_str)}
-  {row('T (J2000):', t_str)}
-  {row('GMST:', gmst_str)}
-  ╰{border}╯
-""")
+        def make_row(label, value):
+            gap = inner_width - len(label) - len(value)
+            return f"│  {label}{' ' * gap}{value}  │"
+        
+        border = "─" * (inner_width + 4)  # +4 for "│  " and "  │" padding
+        
+        lines = [
+            f"  ╭{border}╮",
+            f"  │  {title}{' ' * (inner_width - len(title))}  │",
+            f"  ├{border}┤",
+        ]
+        for label, value in rows:
+            lines.append(f"  {make_row(label, value)}")
+        lines.append(f"  ╰{border}╯")
+        
+        click.echo()
+        click.echo('\n'.join(lines))
+        click.echo()
+        
         if vctx:
             click.echo(vctx.format_steps())
 
