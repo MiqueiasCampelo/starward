@@ -11,13 +11,25 @@ These options apply to all commands and must appear **before** the subcommand:
 | Option | Alias | Description |
 |--------|-------|-------------|
 | `--verbose` | `-v` | Show calculation steps |
-| `--output` | `-o` | Output format: `plain` (default) or `json` |
+| `--output` | `-o` | Output format: `plain` (default), `json`, or `latex` |
+| `--json` | | Shortcut for `--output json` |
 | `--version` | | Show version and exit |
 | `--help` | | Show help and exit |
+
+⚠️ **Important**: Global options must come **before** the subcommand:
+```bash
+# ✓ Correct
+astr0 --json time now
+astr0 --verbose sun position
+
+# ✗ Wrong (won't work)
+astr0 time now --json
+```
 
 **Example**:
 ```bash
 astr0 --verbose --output json time now
+astr0 --json sun rise --lat 40.7 --lon -74.0
 ```
 
 ---

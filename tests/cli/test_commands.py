@@ -281,16 +281,15 @@ class TestOutputFormats:
     
     def test_json_output(self, runner):
         """--json outputs JSON format."""
-        result = runner.invoke(main, ['time', 'now', '--json'])
+        result = runner.invoke(main, ['--json', 'time', 'now'])
         assert result.exit_code == 0
         assert '{' in result.output  # JSON object
     
     def test_verbose_output(self, runner):
         """--verbose shows calculation steps."""
-        result = runner.invoke(main, ['angle', 'sep',
-            '10h00m00s', '+20d00m00s',
-            '10h10m00s', '+21d00m00s',
-            '--verbose'
+        result = runner.invoke(main, ['--verbose', 'angle', 'sep',
+            '10h00m00s +20d00m00s',
+            '10h10m00s +21d00m00s'
         ])
         assert result.exit_code == 0
 

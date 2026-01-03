@@ -268,10 +268,10 @@ Start simple, go deep when needed:
 astr0 sun rise --lat 51.5 --lon -0.1
 
 # Intermediate: JSON for scripting
-astr0 sun rise --lat 51.5 --lon -0.1 --json
+astr0 --json sun rise --lat 51.5 --lon -0.1
 
 # Advanced: show all work
-astr0 sun rise --lat 51.5 --lon -0.1 --verbose
+astr0 --verbose sun rise --lat 51.5 --lon -0.1
 ```
 
 ---
@@ -318,10 +318,10 @@ For speed, astr0 supports command aliases:
 astr0 time now
 
 # JSON for scripting
-astr0 time now --json
+astr0 --json time now
 
 # LaTeX for publications
-astr0 coord convert "18h36m56s +38d47m01s" galactic --latex
+astr0 --output latex coord convert "18h36m56s +38d47m01s" galactic
 ```
 
 ---
