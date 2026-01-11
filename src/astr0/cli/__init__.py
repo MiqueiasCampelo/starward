@@ -16,6 +16,7 @@ from astr0.cli.sun_cmd import sun_group
 from astr0.cli.observer_cmd import observer_group
 from astr0.cli.moon_cmd import moon_group
 from astr0.cli.vis_cmd import vis_group
+from astr0.cli.planets_cmd import planets_group
 from astr0.core.precision import set_precision, PrecisionLevel
 
 
@@ -42,6 +43,8 @@ class AliasedGroup(click.Group):
             'm': 'moon',
             'v': 'vis',
             'visibility': 'vis',
+            'p': 'planets',
+            'planet': 'planets',
         }
         
         if cmd_name in aliases:
@@ -108,6 +111,7 @@ main.add_command(sun_group)
 main.add_command(observer_group)
 main.add_command(moon_group)
 main.add_command(vis_group)
+main.add_command(planets_group)
 
 
 @main.command()

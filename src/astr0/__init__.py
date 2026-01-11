@@ -4,7 +4,7 @@ astr0 — Astronomy Calculation Toolkit
 A professional astronomy calculation toolkit with a soul.
 """
 
-__version__ = "0.2.1"
+__version__ = "0.3.0"
 __author__ = "astr0 contributors"
 
 # Convenient imports for library usage
@@ -23,6 +23,12 @@ from astr0.core.precision import (
     get_precision,
     set_precision,
     precision_context,
+)
+from astr0.core.planets import (
+    Planet,
+    PlanetPosition,
+    planet_position,
+    all_planet_positions,
 )
 
 __all__ = [
@@ -50,4 +56,9 @@ __all__ = [
     "get_precision",
     "set_precision",
     "precision_context",
+    # Planets
+    "Planet",
+    "PlanetPosition",
+    "planet_position",
+    "all_planet_positions",
 ]

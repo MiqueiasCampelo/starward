@@ -6,6 +6,7 @@ import json
 import pytest
 from click.testing import CliRunner
 
+from astr0 import __version__
 from astr0.cli import main
 
 
@@ -25,7 +26,7 @@ class TestCLIBasics:
     def test_version(self, runner):
         result = runner.invoke(main, ['--version'])
         assert result.exit_code == 0
-        assert '0.1.0' in result.output
+        assert __version__ in result.output
     
     def test_about(self, runner):
         result = runner.invoke(main, ['about'])
