@@ -34,7 +34,7 @@ class AstronomicalConstants:
     Collection of astronomical constants.
     
     Access constants as attributes:
-        >>> from astr0.core.constants import CONSTANTS
+        >>> from starward.core.constants import CONSTANTS
         >>> CONSTANTS.c  # Speed of light
         >>> float(CONSTANTS.AU)  # Get numeric value
     """

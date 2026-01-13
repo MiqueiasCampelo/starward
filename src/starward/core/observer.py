@@ -2,7 +2,7 @@
 Observer location management.
 
 Handles observer profiles with location, elevation, and timezone.
-Profiles are stored in ~/.astr0/observers.toml.
+Profiles are stored in ~/.starward/observers.toml.
 """
 
 from __future__ import annotations
@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Optional, Dict, List
 import math
 
-from astr0.core.angles import Angle
+from starward.core.angles import Angle
 
 
 @dataclass(frozen=True)
@@ -98,8 +98,8 @@ class Observer:
 
 
 def get_config_dir() -> Path:
-    """Get the astr0 configuration directory."""
-    config_dir = Path.home() / '.astr0'
+    """Get the starward configuration directory."""
+    config_dir = Path.home() / '.starward'
     return config_dir
 
 

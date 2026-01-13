@@ -7,15 +7,15 @@ sidebar_position: 1
 
 # Verbose Mode
 
-astr0's verbose mode shows the mathematics behind every calculation — perfect for learning, verification, and debugging.
+starward's verbose mode shows the mathematics behind every calculation — perfect for learning, verification, and debugging.
 
 ## CLI Usage
 
 Add `--verbose` or `-v` to any command:
 
 ```bash
-astr0 sun position --verbose
-astr0 planets position mars -v
+starward sun position --verbose
+starward planets position mars -v
 ```
 
 ## What Gets Shown
@@ -31,8 +31,8 @@ Verbose mode displays:
 ## Python API
 
 ```python
-from astr0.verbose import VerboseContext
-from astr0.core.sun import sun_position
+from starward.verbose import VerboseContext
+from starward.core.sun import sun_position
 
 # Create a verbose context
 vctx = VerboseContext()
@@ -58,7 +58,7 @@ Verbose mode is invaluable for:
 
 ## Algorithm References
 
-astr0 calculations follow algorithms from:
+starward calculations follow algorithms from:
 
 - **Meeus, Jean** — *Astronomical Algorithms*, 2nd Edition
 - **USNO** — United States Naval Observatory data

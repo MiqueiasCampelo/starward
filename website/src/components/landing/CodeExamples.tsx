@@ -3,7 +3,7 @@ import CodeBlock from '@theme/CodeBlock';
 
 type Tab = 'cli' | 'python';
 
-const cliExample = `$ astr0 sun position --observer "New York"
+const cliExample = `$ starward sun position --observer "New York"
 
 Sun Position for New York
 ─────────────────────────
@@ -13,7 +13,7 @@ Altitude:         32.4°
 Azimuth:          215.7°
 Distance:         0.9838 AU`;
 
-const pythonExample = `from astr0 import sun, observer
+const pythonExample = `from starward import sun, observer
 
 # Set your location
 obs = observer.Observer("New York", lat=40.7128, lon=-74.0060)

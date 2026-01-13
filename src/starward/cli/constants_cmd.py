@@ -4,7 +4,7 @@ Constants-related CLI commands.
 
 import click
 
-from astr0.core.constants import CONSTANTS
+from starward.core.constants import CONSTANTS
 
 
 @click.group(name='constants')
@@ -17,9 +17,9 @@ def constants_group():
     
     \b
     Examples:
-        astr0 constants list
-        astr0 constants search solar
-        astr0 constants show AU
+        starward constants list
+        starward constants search solar
+        starward constants show AU
     """
     pass
 
@@ -127,7 +127,7 @@ def show(ctx, name: str):
             return
         else:
             click.echo(f"\n  Unknown constant: {name}")
-            click.echo("  Use 'astr0 constants list' to see all constants.")
+            click.echo("  Use 'starward constants list' to see all constants.")
             return
     
     if output_fmt == 'json':

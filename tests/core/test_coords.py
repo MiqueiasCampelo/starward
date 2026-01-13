@@ -13,12 +13,12 @@ import math
 import pytest
 from hypothesis import given, strategies as st, settings
 
-from astr0.core.coords import (
+from starward.core.coords import (
     ICRSCoord, GalacticCoord, HorizontalCoord, transform_coords
 )
-from astr0.core.angles import Angle
-from astr0.core.time import JulianDate
-from astr0.verbose import VerboseContext
+from starward.core.angles import Angle
+from starward.core.time import JulianDate
+from starward.verbose import VerboseContext
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -442,6 +442,6 @@ class TestCoordEdgeCases:
         coord2 = ICRSCoord.from_degrees(0.1, 0)
         
         # These should be very close
-        from astr0.core.angles import angular_separation
+        from starward.core.angles import angular_separation
         sep = angular_separation(coord1.ra, coord1.dec, coord2.ra, coord2.dec)
         assert sep.degrees < 0.3

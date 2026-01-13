@@ -7,16 +7,16 @@ sidebar_position: 3
 
 # Core Modules
 
-Detailed documentation for astr0's core calculation modules.
+Detailed documentation for starward's core calculation modules.
 
-## astr0.core.time
+## starward.core.time
 
 Julian Date and time conversions.
 
 ### JulianDate
 
 ```python
-from astr0.core.time import JulianDate, jd_now
+from starward.core.time import JulianDate, jd_now
 
 # Current time
 now = jd_now()
@@ -34,21 +34,21 @@ jd.to_datetime() # Convert to Python datetime
 ### Conversion Functions
 
 ```python
-from astr0.core.time import utc_to_jd, jd_to_utc
+from starward.core.time import utc_to_jd, jd_to_utc
 from datetime import datetime
 
 jd = utc_to_jd(datetime(2024, 6, 21, 12, 0, 0))
 dt = jd_to_utc(jd)
 ```
 
-## astr0.core.angles
+## starward.core.angles
 
 Angular quantities and calculations.
 
 ### Angle
 
 ```python
-from astr0.core.angles import Angle
+from starward.core.angles import Angle
 
 # Create from degrees
 a = Angle(degrees=45.5)
@@ -74,7 +74,7 @@ a.normalize()    # Wrap to [0, 360)
 ### Angular Separation
 
 ```python
-from astr0.core.angles import angular_separation, position_angle
+from starward.core.angles import angular_separation, position_angle
 
 # Separation between two points
 sep = angular_separation(ra1, dec1, ra2, dec2)
@@ -83,14 +83,14 @@ sep = angular_separation(ra1, dec1, ra2, dec2)
 pa = position_angle(ra1, dec1, ra2, dec2)
 ```
 
-## astr0.core.coords
+## starward.core.coords
 
 Coordinate systems and transformations.
 
 ### ICRSCoord
 
 ```python
-from astr0.core.coords import ICRSCoord
+from starward.core.coords import ICRSCoord
 
 # Parse from string
 coord = ICRSCoord.parse("18h36m56s +38d47m01s")
@@ -110,18 +110,18 @@ horizontal = coord.to_horizontal(jd, lat, lon)
 ### GalacticCoord
 
 ```python
-from astr0.core.coords import GalacticCoord
+from starward.core.coords import GalacticCoord
 
 coord = GalacticCoord.from_degrees(l=120.0, b=30.0)
 icrs = coord.to_icrs()
 ```
 
-## astr0.core.sun
+## starward.core.sun
 
 Solar calculations.
 
 ```python
-from astr0.core.sun import (
+from starward.core.sun import (
     sun_position,
     sunrise, sunset, solar_noon,
     solar_altitude, day_length,
@@ -140,12 +140,12 @@ set_time = sunset(observer)
 length = day_length(observer)
 ```
 
-## astr0.core.moon
+## starward.core.moon
 
 Lunar calculations.
 
 ```python
-from astr0.core.moon import (
+from starward.core.moon import (
     moon_position,
     moon_phase, MoonPhase,
     moonrise, moonset,
@@ -169,12 +169,12 @@ phase.age_days         # Days since new moon
 full = next_phase(MoonPhase.FULL_MOON)
 ```
 
-## astr0.core.planets
+## starward.core.planets
 
 Planetary calculations.
 
 ```python
-from astr0.core.planets import (
+from starward.core.planets import (
     Planet,
     planet_position,
     all_planet_positions,
@@ -199,12 +199,12 @@ positions = all_planet_positions()
 rise = planet_rise(Planet.MARS, observer)
 ```
 
-## astr0.core.observer
+## starward.core.observer
 
 Observer location management.
 
 ```python
-from astr0.core.observer import Observer, get_observer
+from starward.core.observer import Observer, get_observer
 
 # Create observer
 obs = Observer.from_degrees("NYC", latitude=40.7, longitude=-74.0)
@@ -219,12 +219,12 @@ obs.lon_deg    # Degrees
 home = get_observer("home")
 ```
 
-## astr0.core.visibility
+## starward.core.visibility
 
 Visibility calculations for observing planning.
 
 ```python
-from astr0.core.visibility import (
+from starward.core.visibility import (
     compute_visibility,
     airmass,
     target_altitude,

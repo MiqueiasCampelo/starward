@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import pytest
 
-from astr0.core.observer import Observer
+from starward.core.observer import Observer
 
 
 # ═══════════════════════════════════════════════════════════════════════════════

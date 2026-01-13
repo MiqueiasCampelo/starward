@@ -9,14 +9,14 @@ import json
 from datetime import datetime
 from typing import Optional
 
-from astr0.core.moon import (
+from starward.core.moon import (
     moon_position, moon_phase, moon_altitude,
     moonrise, moonset, next_phase,
     MoonPhase, PHASE_EMOJI
 )
-from astr0.core.time import JulianDate, jd_now
-from astr0.core.observer import Observer, OBSERVERS
-from astr0.verbose import VerboseContext
+from starward.core.time import JulianDate, jd_now
+from starward.core.observer import Observer, OBSERVERS
+from starward.verbose import VerboseContext
 
 
 def _get_observer_from_options(lat: Optional[float], lon: Optional[float],
@@ -25,7 +25,7 @@ def _get_observer_from_options(lat: Optional[float], lon: Optional[float],
     if observer_name:
         obs = OBSERVERS.get(observer_name)
         if obs is None:
-            raise click.ClickException(f"Observer '{observer_name}' not found. Use 'astr0 observer list'")
+            raise click.ClickException(f"Observer '{observer_name}' not found. Use 'starward observer list'")
         return obs
     elif lat is not None and lon is not None:
         return Observer.from_degrees(
@@ -53,9 +53,9 @@ def moon_group():
     
     \b
     Examples:
-        astr0 moon position                    # Current lunar position
-        astr0 moon phase                       # Current phase
-        astr0 moon rise --lat 34.05 --lon -118.25
+        starward moon position                    # Current lunar position
+        starward moon phase                       # Current phase
+        starward moon rise --lat 34.05 --lon -118.25
     """
     pass
 

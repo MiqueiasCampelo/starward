@@ -3,23 +3,23 @@ id: overview
 title: Python API Overview
 sidebar_label: Overview
 sidebar_position: 1
-description: Use astr0 as a Python library for astronomical calculations including time, coordinates, sun, moon, and planets.
+description: Use starward as a Python library for astronomical calculations including time, coordinates, sun, moon, and planets.
 ---
 
 # Python API Overview
 
-astr0 can be used as a Python library for astronomical calculations.
+starward can be used as a Python library for astronomical calculations.
 
 ## Installation
 
 ```bash
-pip install astr0
+pip install starward
 ```
 
 ## Quick Example
 
 ```python
-from astr0 import (
+from starward import (
     JulianDate, jd_now,
     ICRSCoord, Angle,
     Planet, planet_position,
@@ -40,10 +40,10 @@ print(f"Mars magnitude: {mars.magnitude:+.1f}")
 
 ## Main Exports
 
-The top-level `astr0` module exports commonly used classes:
+The top-level `starward` module exports commonly used classes:
 
 ```python
-from astr0 import (
+from starward import (
     # Time
     JulianDate,
     jd_now,
@@ -77,14 +77,14 @@ from astr0 import (
 
 ## Core Modules
 
-For more specialized functions, import from `astr0.core`:
+For more specialized functions, import from `starward.core`:
 
 ```python
-from astr0.core.sun import sun_position, sunrise, sunset
-from astr0.core.moon import moon_position, moon_phase
-from astr0.core.planets import planet_rise, planet_set
-from astr0.core.observer import Observer
-from astr0.core.visibility import compute_visibility
+from starward.core.sun import sun_position, sunrise, sunset
+from starward.core.moon import moon_position, moon_phase
+from starward.core.planets import planet_rise, planet_set
+from starward.core.observer import Observer
+from starward.core.visibility import compute_visibility
 ```
 
 ## Verbose Mode
@@ -92,8 +92,8 @@ from astr0.core.visibility import compute_visibility
 Enable step-by-step calculation output:
 
 ```python
-from astr0.verbose import VerboseContext
-from astr0.core.sun import sun_position
+from starward.verbose import VerboseContext
+from starward.core.sun import sun_position
 
 # Create verbose context
 vctx = VerboseContext()

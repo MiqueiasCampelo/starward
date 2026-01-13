@@ -7,7 +7,7 @@ from __future__ import annotations
 import click
 from typing import Optional
 
-from astr0.core.observer import Observer, OBSERVERS, get_config_file
+from starward.core.observer import Observer, OBSERVERS, get_config_file
 
 
 @click.group(name='observer')
@@ -20,13 +20,13 @@ def observer_group():
     with sun, moon, and visibility commands.
     
     \b
-    Profiles are stored in: ~/.astr0/observers.toml
+    Profiles are stored in: ~/.starward/observers.toml
     
     \b
     Examples:
-        astr0 observer add "Home" --lat 34.05 --lon -118.25
-        astr0 observer list
-        astr0 observer default home
+        starward observer add "Home" --lat 34.05 --lon -118.25
+        starward observer list
+        starward observer default home
     """
     pass
 
@@ -82,7 +82,7 @@ def list_cmd(ctx):
     else:
         if not observers:
             click.echo("No observers configured.")
-            click.echo(f"Add one with: astr0 observer add \"Name\" --lat LAT --lon LON")
+            click.echo(f"Add one with: starward observer add \"Name\" --lat LAT --lon LON")
             return
         
         click.echo("\n  Observer Profiles")

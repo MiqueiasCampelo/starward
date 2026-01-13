@@ -3,7 +3,7 @@ id: installation
 title: Installation
 sidebar_label: Installation
 sidebar_position: 1
-description: Install astr0 astronomy toolkit via pip or from source. Requires Python 3.9+.
+description: Install starward astronomy toolkit via pip or from source. Requires Python 3.9+.
 ---
 
 # Installation
@@ -16,14 +16,14 @@ description: Install astr0 astronomy toolkit via pip or from source. Requires Py
 ## Install from PyPI
 
 ```bash
-pip install astr0
+pip install starward
 ```
 
 ## Install from Source
 
 ```bash
-git clone https://github.com/oddurs/astr0.git
-cd astr0
+git clone https://github.com/oddurs/starward.git
+cd starward
 pip install -e .
 ```
 
@@ -38,15 +38,15 @@ pip install -e ".[dev]"
 ## Verify Installation
 
 ```bash
-astr0 --version
-# astr0, version 0.2.1
+starward --version
+# starward, version 0.2.1
 
-astr0 time now
+starward time now
 ```
 
 ## Dependencies
 
-astr0 has minimal dependencies:
+starward has minimal dependencies:
 
 | Package | Purpose |
 |---------|---------|

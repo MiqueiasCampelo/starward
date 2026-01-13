@@ -14,12 +14,12 @@ from datetime import datetime, timezone
 import pytest
 from hypothesis import given, strategies as st, settings
 
-from astr0.core.time import (
+from starward.core.time import (
     JulianDate, jd_now, utc_to_jd, jd_to_utc,
     mjd_to_jd, jd_to_mjd
 )
-from astr0.core.constants import CONSTANTS
-from astr0.verbose import VerboseContext
+from starward.core.constants import CONSTANTS
+from starward.verbose import VerboseContext
 
 
 # ═══════════════════════════════════════════════════════════════════════════════

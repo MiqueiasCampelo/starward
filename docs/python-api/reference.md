@@ -7,14 +7,14 @@ sidebar_position: 2
 
 # Python API Reference
 
-While astr0 is primarily a CLI tool, all functionality is available as a Python library. This guide covers the programmatic API.
+While starward is primarily a CLI tool, all functionality is available as a Python library. This guide covers the programmatic API.
 
 ---
 
 ## Installation
 
 ```bash
-pip install astr0
+pip install starward
 ```
 
 Or for development:
@@ -28,10 +28,10 @@ pip install -e ".[dev]"
 ## Quick Start
 
 ```python
-from astr0.core.time import JulianDate, jd_now
-from astr0.core.coords import ICRSCoord, GalacticCoord
-from astr0.core.angles import Angle, angular_separation
-from astr0.core.constants import AstronomicalConstants
+from starward.core.time import JulianDate, jd_now
+from starward.core.coords import ICRSCoord, GalacticCoord
+from starward.core.angles import Angle, angular_separation
+from starward.core.constants import AstronomicalConstants
 
 # Current Julian Date
 jd = jd_now()
@@ -58,7 +58,7 @@ print(f"Speed of light: {const.c.value} {const.c.unit}")
 
 ---
 
-## astr0.core.angles
+## starward.core.angles
 
 ### Angle Class
 
@@ -67,7 +67,7 @@ Immutable angle representation with automatic unit conversion.
 #### Creating Angles
 
 ```python
-from astr0.core.angles import Angle
+from starward.core.angles import Angle
 
 # From various units (use exactly ONE keyword argument)
 a1 = Angle(degrees=45.5)
@@ -178,7 +178,7 @@ a.normalize(center=180)    # Angle(degrees=10) — range [0, 360)
 Calculate the angular separation between two points using the Vincenty formula.
 
 ```python
-from astr0.core.angles import Angle, angular_separation
+from starward.core.angles import Angle, angular_separation
 
 ra1 = Angle(hours=10)
 dec1 = Angle(degrees=30)
@@ -189,7 +189,7 @@ sep = angular_separation(ra1, dec1, ra2, dec2)
 print(f"Separation: {sep.to_dms()}")
 
 # With verbose output
-from astr0.verbose import VerboseContext
+from starward.verbose import VerboseContext
 ctx = VerboseContext()
 sep = angular_separation(ra1, dec1, ra2, dec2, verbose=ctx)
 ctx.print_steps()
@@ -211,7 +211,7 @@ def angular_separation(
 Calculate the position angle from point 1 to point 2.
 
 ```python
-from astr0.core.angles import Angle, position_angle
+from starward.core.angles import Angle, position_angle
 
 ra1 = Angle(hours=10)
 dec1 = Angle(degrees=30)
@@ -233,7 +233,7 @@ def position_angle(
 
 ---
 
-## astr0.core.time
+## starward.core.time
 
 ### JulianDate Class
 
@@ -242,7 +242,7 @@ Immutable Julian Date representation.
 #### Creating JulianDates
 
 ```python
-from astr0.core.time import JulianDate, jd_now
+from starward.core.time import JulianDate, jd_now
 
 # Direct from JD value
 jd = JulianDate(2460000.5)
@@ -289,7 +289,7 @@ gmst = jd.gmst()       # Greenwich Mean Sidereal Time (hours)
 lst = jd.lst(-118.25)  # Local Sidereal Time for longitude (hours)
 
 # With verbose output
-from astr0.verbose import VerboseContext
+from starward.verbose import VerboseContext
 ctx = VerboseContext()
 gmst = jd.gmst(verbose=ctx)
 ctx.print_steps()
@@ -318,7 +318,7 @@ jd1 == jd2              # False
 ### Convenience Functions
 
 ```python
-from astr0.core.time import (
+from starward.core.time import (
     jd_now,
     calendar_to_jd,
     jd_to_datetime,
@@ -342,7 +342,7 @@ mjd_val = jd_to_mjd(2460000.5)  # 60000.0
 
 ---
 
-## astr0.core.coords
+## starward.core.coords
 
 ### ICRSCoord Class
 
@@ -351,8 +351,8 @@ ICRS (J2000 equatorial) coordinates.
 #### Creating
 
 ```python
-from astr0.core.coords import ICRSCoord
-from astr0.core.angles import Angle
+from starward.core.coords import ICRSCoord
+from starward.core.angles import Angle
 
 # From Angle objects
 coord = ICRSCoord(
@@ -383,9 +383,9 @@ coord.dec.degrees  # 45.0
 #### Transformations
 
 ```python
-from astr0.core.coords import ICRSCoord
-from astr0.core.angles import Angle
-from astr0.core.time import jd_now
+from starward.core.coords import ICRSCoord
+from starward.core.angles import Angle
+from starward.core.time import jd_now
 
 coord = ICRSCoord.from_string("12h30m +45d")
 
@@ -414,8 +414,8 @@ Galactic coordinates.
 #### Creating
 
 ```python
-from astr0.core.coords import GalacticCoord
-from astr0.core.angles import Angle
+from starward.core.coords import GalacticCoord
+from starward.core.angles import Angle
 
 # From Angle objects
 coord = GalacticCoord(
@@ -427,7 +427,7 @@ coord = GalacticCoord(
 coord = GalacticCoord.from_degrees(l=0, b=0)  # Galactic Center
 
 # From ICRS
-from astr0.core.coords import ICRSCoord
+from starward.core.coords import ICRSCoord
 icrs = ICRSCoord.from_string("12h30m +45d")
 gal = GalacticCoord.from_icrs(icrs)
 ```
@@ -454,8 +454,8 @@ Horizontal (Alt/Az) coordinates.
 #### Creating
 
 ```python
-from astr0.core.coords import HorizontalCoord
-from astr0.core.angles import Angle
+from starward.core.coords import HorizontalCoord
+from starward.core.angles import Angle
 
 # From Angle objects
 coord = HorizontalCoord(
@@ -467,8 +467,8 @@ coord = HorizontalCoord(
 coord = HorizontalCoord.from_degrees(alt=45.0, az=180.0)
 
 # From ICRS (requires location and time)
-from astr0.core.coords import ICRSCoord
-from astr0.core.time import jd_now
+from starward.core.coords import ICRSCoord
+from starward.core.time import jd_now
 
 icrs = ICRSCoord.from_string("12h30m +45d")
 horiz = HorizontalCoord.from_icrs(
@@ -497,9 +497,9 @@ horiz.airmass   # float — Atmospheric airmass (Pickering 2002)
 Generic coordinate transformation function.
 
 ```python
-from astr0.core.coords import ICRSCoord, transform_coords
-from astr0.core.angles import Angle
-from astr0.core.time import jd_now
+from starward.core.coords import ICRSCoord, transform_coords
+from starward.core.angles import Angle
+from starward.core.time import jd_now
 
 coord = ICRSCoord.from_string("12h30m +45d")
 
@@ -530,14 +530,14 @@ def transform_coords(
 
 ---
 
-## astr0.core.constants
+## starward.core.constants
 
 ### AstronomicalConstants Class
 
 Singleton providing access to astronomical constants.
 
 ```python
-from astr0.core.constants import AstronomicalConstants
+from starward.core.constants import AstronomicalConstants
 
 const = AstronomicalConstants()
 
@@ -585,20 +585,20 @@ for c in const.search("solar"):
 
 ---
 
-## astr0.verbose
+## starward.verbose
 
 ### VerboseContext Class
 
 Collect calculation steps for educational output.
 
 ```python
-from astr0.verbose import VerboseContext, step
+from starward.verbose import VerboseContext, step
 
 # Create context
 ctx = VerboseContext()
 
 # Pass to calculations
-from astr0.core.angles import angular_separation, Angle
+from starward.core.angles import angular_separation, Angle
 ra1, dec1 = Angle(hours=10), Angle(degrees=30)
 ra2, dec2 = Angle(hours=11), Angle(degrees=31)
 sep = angular_separation(ra1, dec1, ra2, dec2, verbose=ctx)
@@ -619,7 +619,7 @@ ctx.clear()
 ### Adding Steps in Custom Code
 
 ```python
-from astr0.verbose import VerboseContext, step
+from starward.verbose import VerboseContext, step
 
 def my_calculation(x, y, verbose=None):
     """Custom calculation with verbose support."""
@@ -646,10 +646,10 @@ ctx.print_steps()
 Calculate when M31 is highest in the sky from a given location.
 """
 
-from astr0.core.coords import ICRSCoord, HorizontalCoord
-from astr0.core.time import JulianDate, jd_now
-from astr0.core.angles import Angle
-from astr0.verbose import VerboseContext
+from starward.core.coords import ICRSCoord, HorizontalCoord
+from starward.core.time import JulianDate, jd_now
+from starward.core.angles import Angle
+from starward.verbose import VerboseContext
 
 # M31 coordinates
 m31 = ICRSCoord.from_string("00h42m44s +41d16m09s")
@@ -683,12 +683,12 @@ ctx.print_steps()
 
 ## Type Hints
 
-All astr0 functions have full type hints:
+All starward functions have full type hints:
 
 ```python
-from astr0.core.angles import Angle, angular_separation
-from astr0.core.time import JulianDate
-from astr0.verbose import VerboseContext
+from starward.core.angles import Angle, angular_separation
+from starward.core.time import JulianDate
+from starward.verbose import VerboseContext
 from typing import Optional
 
 def angular_separation(
@@ -706,10 +706,10 @@ This enables IDE autocompletion and static type checking with mypy.
 
 ## Error Handling
 
-astr0 uses standard Python exceptions:
+starward uses standard Python exceptions:
 
 ```python
-from astr0.core.angles import Angle
+from starward.core.angles import Angle
 
 try:
     # Invalid: multiple units specified
@@ -726,4 +726,4 @@ except ValueError as e:
 
 ---
 
-*For more information, see the [source code](https://github.com/yourusername/astr0) or open an issue!*
+*For more information, see the [source code](https://github.com/yourusername/starward) or open an issue!*

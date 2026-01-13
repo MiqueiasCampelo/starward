@@ -5,10 +5,10 @@ Coordinate-related CLI commands.
 import click
 from typing import Optional
 
-from astr0.core.coords import ICRSCoord, GalacticCoord, HorizontalCoord, transform_coords
-from astr0.core.angles import Angle
-from astr0.core.time import JulianDate, jd_now
-from astr0.verbose import VerboseContext
+from starward.core.coords import ICRSCoord, GalacticCoord, HorizontalCoord, transform_coords
+from starward.core.angles import Angle
+from starward.core.time import JulianDate, jd_now
+from starward.verbose import VerboseContext
 
 
 @click.group(name='coords')
@@ -21,8 +21,8 @@ def coords_group():
     
     \b
     Examples:
-        astr0 coords transform "12h30m +45d" --to galactic
-        astr0 coords parse "18h36m56s -26d54m32s"
+        starward coords transform "12h30m +45d" --to galactic
+        starward coords parse "18h36m56s -26d54m32s"
     """
     pass
 
@@ -55,9 +55,9 @@ def transform(ctx, coordinates: str, from_sys: str, to_sys: str,
     
     \b
     Examples:
-        astr0 coords transform "12h30m +45d" --to galactic
-        astr0 coords transform "18h36m56s -26d54m32s" --to altaz --lat 34 --lon -118
-        astr0 coords transform "l=0 b=0" --from galactic --to icrs
+        starward coords transform "12h30m +45d" --to galactic
+        starward coords transform "18h36m56s -26d54m32s" --to altaz --lat 34 --lon -118
+        starward coords transform "l=0 b=0" --from galactic --to icrs
     """
     verbose = ctx.obj.get('verbose', False)
     output_fmt = ctx.obj.get('output', 'plain')
@@ -159,8 +159,8 @@ def parse(ctx, coordinates: str):
     
     \b
     Examples:
-        astr0 coords parse "12h30m45.6s +45d30m15.2s"
-        astr0 coords parse "187.44 45.504"
+        starward coords parse "12h30m45.6s +45d30m15.2s"
+        starward coords parse "187.44 45.504"
     """
     output_fmt = ctx.obj.get('output', 'plain')
     

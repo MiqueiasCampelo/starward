@@ -33,7 +33,7 @@ export default function Hero(): JSX.Element {
             </Link>
             <Link
               className="button button--secondary button--lg"
-              to="https://github.com/oddurs/astr0"
+              to="https://github.com/oddurs/starward"
             >
               View on GitHub
             </Link>
@@ -48,7 +48,7 @@ export default function Hero(): JSX.Element {
             </div>
             <pre className="terminal__content">
               <code>
-                <span className="terminal__prompt">$</span> astr0 moon phase --verbose{'\n'}
+                <span className="terminal__prompt">$</span> starward moon phase --verbose{'\n'}
                 {'\n'}
                 <span className="terminal__comment"># Moon Phase Calculation</span>{'\n'}
                 <span className="terminal__label">Julian Date:</span> 2460676.5{'\n'}

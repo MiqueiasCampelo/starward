@@ -12,17 +12,17 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Optional, Dict, Tuple
 
-from astr0.core.angles import Angle, angular_separation
-from astr0.core.time import JulianDate, jd_now
-from astr0.core.coords import ICRSCoord
-from astr0.core.observer import Observer
-from astr0.core.sun import sun_position, mean_obliquity, true_obliquity
-from astr0.core.planets_data import (
+from starward.core.angles import Angle, angular_separation
+from starward.core.time import JulianDate, jd_now
+from starward.core.coords import ICRSCoord
+from starward.core.observer import Observer
+from starward.core.sun import sun_position, mean_obliquity, true_obliquity
+from starward.core.planets_data import (
     ORBITAL_ELEMENTS,
     MAGNITUDE_PARAMS,
     ANGULAR_DIAMETER_1AU,
 )
-from astr0.verbose import VerboseContext, step
+from starward.verbose import VerboseContext, step
 
 
 class Planet(Enum):

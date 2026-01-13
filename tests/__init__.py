@@ -1,3 +1,3 @@
 """
-Tests for astr0 — Astronomy Calculation Toolkit.
+Tests for starward — Astronomy Calculation Toolkit.
 """

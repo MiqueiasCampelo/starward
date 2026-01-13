@@ -8,7 +8,7 @@ description: Command-line interface for astronomical calculations. Time conversi
 
 # CLI Overview
 
-astr0 provides a comprehensive command-line interface for astronomical calculations.
+starward provides a comprehensive command-line interface for astronomical calculations.
 
 ## Global Options
 
@@ -32,7 +32,7 @@ astr0 provides a comprehensive command-line interface for astronomical calculati
 | `full` | 15 | Maximum precision |
 
 ```bash
-astr0 --precision high sun position
+starward --precision high sun position
 ```
 
 ## Command Groups
@@ -53,15 +53,15 @@ astr0 --precision high sun position
 
 ```bash
 # Using aliases
-astr0 t now          # time now
-astr0 p all          # planets all
-astr0 s rise         # sun rise
+starward t now          # time now
+starward p all          # planets all
+starward s rise         # sun rise
 
 # Combining options
-astr0 -v --json planets position mars
+starward -v --json planets position mars
 
 # Pipeline to jq
-astr0 planets all --json | jq '.planets.jupiter'
+starward planets all --json | jq '.planets.jupiter'
 ```
 
 ## Detailed References

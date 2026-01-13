@@ -7,7 +7,7 @@ sidebar_position: 2
 
 # Precision Levels
 
-astr0 supports multiple precision levels for different use cases.
+starward supports multiple precision levels for different use cases.
 
 ## Available Levels
 
@@ -23,19 +23,19 @@ astr0 supports multiple precision levels for different use cases.
 
 ```bash
 # Set precision for a command
-astr0 --precision high sun position
+starward --precision high sun position
 
 # Short form
-astr0 -p full planets position mars
+starward -p full planets position mars
 
 # With aliases
-astr0 -p compact p all
+starward -p compact p all
 ```
 
 ## Python API
 
 ```python
-from astr0 import get_precision, set_precision, precision_context
+from starward import get_precision, set_precision, precision_context
 
 # Check current precision
 prec = get_precision()
@@ -54,7 +54,7 @@ with precision_context('full'):
 ## PrecisionConfig
 
 ```python
-from astr0.core.precision import PrecisionConfig, PrecisionLevel
+from starward.core.precision import PrecisionConfig, PrecisionLevel
 
 # Get config for a level
 config = PrecisionConfig.from_level(PrecisionLevel.HIGH)

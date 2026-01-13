@@ -2,7 +2,7 @@
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                         CLI COMMAND TESTS                                    ║
 ║                                                                              ║
-║  Integration tests for the astr0 command-line interface.                     ║
+║  Integration tests for the starward command-line interface.                     ║
 ║  Verifying the bridge between algorithms and astronomers.                    ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 """
@@ -12,7 +12,7 @@ from __future__ import annotations
 import pytest
 from click.testing import CliRunner
 
-from astr0.cli import main
+from starward.cli import main
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -31,14 +31,14 @@ def runner():
 
 class TestMainCommand:
     """
-    Tests for the main astr0 command entry point.
+    Tests for the main starward command entry point.
     """
     
     def test_help(self, runner):
         """--help displays usage information."""
         result = runner.invoke(main, ['--help'])
         assert result.exit_code == 0
-        assert 'astr0' in result.output.lower() or 'usage' in result.output.lower()
+        assert 'starward' in result.output.lower() or 'usage' in result.output.lower()
     
     def test_version(self, runner):
         """--version displays version string."""

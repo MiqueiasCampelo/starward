@@ -7,13 +7,13 @@ sidebar_position: 2
 
 # Quick Start
 
-Get up and running with astr0 in minutes.
+Get up and running with starward in minutes.
 
 ## Current Time
 
 ```bash
 # Show current time in multiple formats
-astr0 time now
+starward time now
 ```
 
 Output:
@@ -30,33 +30,33 @@ Output:
 
 ```bash
 # All planets at once
-astr0 planets all
+starward planets all
 
 # Specific planet
-astr0 planets position mars
+starward planets position mars
 ```
 
 ## Sun and Moon
 
 ```bash
 # Solar position
-astr0 sun position
+starward sun position
 
 # Sunrise/sunset (requires location)
-astr0 sun rise --lat 40.7 --lon -74.0
+starward sun rise --lat 40.7 --lon -74.0
 
 # Moon phase
-astr0 moon phase
+starward moon phase
 ```
 
 ## Coordinate Transformations
 
 ```bash
 # Parse and transform coordinates
-astr0 coords transform "12h30m +45d" --to galactic
+starward coords transform "12h30m +45d" --to galactic
 
 # Angular separation between objects
-astr0 angles sep "10h30m +20d" "11h00m +22d"
+starward angles sep "10h30m +20d" "11h00m +22d"
 ```
 
 ## Verbose Mode
@@ -64,7 +64,7 @@ astr0 angles sep "10h30m +20d" "11h00m +22d"
 Add `--verbose` or `-v` to see the math:
 
 ```bash
-astr0 sun position --verbose
+starward sun position --verbose
 ```
 
 This shows step-by-step calculations with formulas and intermediate values.
@@ -74,7 +74,7 @@ This shows step-by-step calculations with formulas and intermediate values.
 For scripting and integration:
 
 ```bash
-astr0 planets position jupiter --json
+starward planets position jupiter --json
 ```
 
 ## Setting Up an Observer
@@ -83,20 +83,20 @@ For rise/set calculations, save your location:
 
 ```bash
 # Add a named observer
-astr0 observer add "Home" 40.7128 -74.0060
+starward observer add "Home" 40.7128 -74.0060
 
 # Set as default
-astr0 observer default "Home"
+starward observer default "Home"
 
 # Now rise/set commands use your location automatically
-astr0 sun rise
-astr0 planets rise mars
+starward sun rise
+starward planets rise mars
 ```
 
 ## Python Library
 
 ```python
-from astr0 import planet_position, Planet, jd_now
+from starward import planet_position, Planet, jd_now
 
 # Get Mars position
 mars = planet_position(Planet.MARS)

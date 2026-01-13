@@ -5,12 +5,12 @@ Tests for the coordinates module.
 import math
 import pytest
 
-from astr0.core.coords import (
+from starward.core.coords import (
     ICRSCoord, GalacticCoord, HorizontalCoord, transform_coords
 )
-from astr0.core.angles import Angle
-from astr0.core.time import JulianDate
-from astr0.verbose import VerboseContext
+from starward.core.angles import Angle
+from starward.core.time import JulianDate
+from starward.verbose import VerboseContext
 
 
 class TestICRSCoord:

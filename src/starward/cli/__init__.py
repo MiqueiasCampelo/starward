@@ -1,5 +1,5 @@
 """
-Command Line Interface for astr0.
+Command Line Interface for starward.
 
 Per aspera ad astra — Through hardships to the stars
 """
@@ -7,17 +7,17 @@ Per aspera ad astra — Through hardships to the stars
 import click
 from typing import Optional
 
-from astr0 import __version__
-from astr0.cli.time_cmd import time_group
-from astr0.cli.coords_cmd import coords_group
-from astr0.cli.angles_cmd import angles_group
-from astr0.cli.constants_cmd import constants_group
-from astr0.cli.sun_cmd import sun_group
-from astr0.cli.observer_cmd import observer_group
-from astr0.cli.moon_cmd import moon_group
-from astr0.cli.vis_cmd import vis_group
-from astr0.cli.planets_cmd import planets_group
-from astr0.core.precision import set_precision, PrecisionLevel
+from starward import __version__
+from starward.cli.time_cmd import time_group
+from starward.cli.coords_cmd import coords_group
+from starward.cli.angles_cmd import angles_group
+from starward.cli.constants_cmd import constants_group
+from starward.cli.sun_cmd import sun_group
+from starward.cli.observer_cmd import observer_group
+from starward.cli.moon_cmd import moon_group
+from starward.cli.vis_cmd import vis_group
+from starward.cli.planets_cmd import planets_group
+from starward.core.precision import set_precision, PrecisionLevel
 
 
 class AliasedGroup(click.Group):
@@ -61,24 +61,24 @@ class AliasedGroup(click.Group):
               type=click.Choice(['compact', 'display', 'standard', 'high', 'full']),
               default='standard',
               help='Output precision level (default: standard)')
-@click.version_option(__version__, prog_name='astr0')
+@click.version_option(__version__, prog_name='starward')
 @click.pass_context
 def main(ctx, verbose: bool, json_output: bool, output: str, precision: str):
     """
-    astr0 — Astronomy Calculation Toolkit
-    
+    starward — Astronomy Calculation Toolkit
+
     \b
     ✦ Per aspera ad astra ✦
-    
+
     A professional toolkit for astronomical calculations.
     Use --verbose to see the math behind each calculation.
-    
+
     \b
     Examples:
-        astr0 time now
-        astr0 time now --json
-        astr0 coords transform "12h30m +45d" --to galactic
-        astr0 angles sep "10h +30d" "11h +31d"
+        starward time now
+        starward time now --json
+        starward coords transform "12h30m +45d" --to galactic
+        starward angles sep "10h +30d" "11h +31d"
     
     \b
     Aliases:
@@ -116,14 +116,12 @@ main.add_command(planets_group)
 
 @main.command()
 def about():
-    """Show information about astr0."""
+    """Show information about starward."""
     click.echo(f"""
     ╭───────────────────────────────────────╮
-    │                                       │
-    │       __ _ ___| |_ _ __ ___           │
-    │      / _` / __| __| '__/ _ \\          │
-    │     | (_| \\__ \\ |_| | | (_) |         │
-    │      \\__,_|___/\\__|_|  \\___/          │
+    │    __                                 │
+    │   (_  _|_  _. ._     .  _. ._ _|      │
+    │   __)(  |_(_| |  \\)\\/ (_| | (_|       │
     │                                       │
     │     Astronomy Calculation Toolkit     │
     │     ─────────────────────────────     │

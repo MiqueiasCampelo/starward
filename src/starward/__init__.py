@@ -1,30 +1,30 @@
 """
-astr0 — Astronomy Calculation Toolkit
+starward — Astronomy Calculation Toolkit
 
 A professional astronomy calculation toolkit with a soul.
 """
 
 __version__ = "0.3.0"
-__author__ = "astr0 contributors"
+__author__ = "starward contributors"
 
 # Convenient imports for library usage
-from astr0.core.angles import Angle, angular_separation, position_angle
-from astr0.core.time import JulianDate, jd_now, utc_to_jd, jd_to_utc
-from astr0.core.coords import (
+from starward.core.angles import Angle, angular_separation, position_angle
+from starward.core.time import JulianDate, jd_now, utc_to_jd, jd_to_utc
+from starward.core.coords import (
     ICRSCoord,
     GalacticCoord,
     HorizontalCoord,
     transform_coords,
 )
-from astr0.core.constants import CONSTANTS
-from astr0.core.precision import (
+from starward.core.constants import CONSTANTS
+from starward.core.precision import (
     PrecisionConfig,
     PrecisionLevel,
     get_precision,
     set_precision,
     precision_context,
 )
-from astr0.core.planets import (
+from starward.core.planets import (
     Planet,
     PlanetPosition,
     planet_position,

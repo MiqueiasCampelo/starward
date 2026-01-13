@@ -11,13 +11,13 @@ from __future__ import annotations
 
 import pytest
 
-from astr0.core.angles import Angle
-from astr0.core.coords import ICRSCoord
-from astr0.core.time import JulianDate, jd_now
-from astr0.core.observer import Observer
-from astr0.core.sun import sun_position, sunrise, sunset, solar_noon, solar_altitude
-from astr0.core.moon import moon_position, moon_phase, MoonPhase
-from astr0.core.visibility import (
+from starward.core.angles import Angle
+from starward.core.coords import ICRSCoord
+from starward.core.time import JulianDate, jd_now
+from starward.core.observer import Observer
+from starward.core.sun import sun_position, sunrise, sunset, solar_noon, solar_altitude
+from starward.core.moon import moon_position, moon_phase, MoonPhase
+from starward.core.visibility import (
     airmass, target_altitude, target_azimuth,
     transit_time, compute_visibility
 )
@@ -81,7 +81,7 @@ class TestSunMoonRelationship:
     
     def test_sun_moon_separation_correlates_with_phase(self):
         """Test that Sun-Moon separation varies with phase."""
-        from astr0.core.angles import angular_separation
+        from starward.core.angles import angular_separation
 
         # Use fixed dates with known lunar phases for reproducible tests
         # New moon: 2024-01-11 (JD 2460320.5)

@@ -6,8 +6,8 @@ import json
 import pytest
 from click.testing import CliRunner
 
-from astr0 import __version__
-from astr0.cli import main
+from starward import __version__
+from starward.cli import main
 
 
 @pytest.fixture
@@ -21,7 +21,7 @@ class TestCLIBasics:
     def test_help(self, runner):
         result = runner.invoke(main, ['--help'])
         assert result.exit_code == 0
-        assert 'astr0' in result.output.lower()
+        assert 'starward' in result.output.lower()
     
     def test_version(self, runner):
         result = runner.invoke(main, ['--version'])

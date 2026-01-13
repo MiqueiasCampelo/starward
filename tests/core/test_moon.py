@@ -12,10 +12,10 @@ from __future__ import annotations
 import math
 import pytest
 
-from astr0.core.angles import Angle
-from astr0.core.time import JulianDate, jd_now
-from astr0.core.observer import Observer
-from astr0.core.moon import (
+from starward.core.angles import Angle
+from starward.core.time import JulianDate, jd_now
+from starward.core.observer import Observer
+from starward.core.moon import (
     moon_position, moon_phase, moon_altitude,
     moonrise, moonset, next_phase,
     MoonPhase, MoonPosition, MoonPhaseInfo

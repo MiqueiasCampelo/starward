@@ -14,11 +14,11 @@ export default function QuickInstall(): JSX.Element {
       <div className="quick-install__container">
         <h2 className="quick-install__title">Ready to explore?</h2>
         <p className="quick-install__subtitle">
-          Install astr0 with pip and start calculating
+          Install starward with pip and start calculating
         </p>
 
         <div className="quick-install__command">
-          <code>pip install astr0</code>
+          <code>pip install starward</code>
         </div>
 
         <p className="quick-install__requirements">

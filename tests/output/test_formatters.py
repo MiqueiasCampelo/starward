@@ -12,7 +12,7 @@ from __future__ import annotations
 import json
 import pytest
 
-from astr0.output.formatters import (
+from starward.output.formatters import (
     PlainFormatter, JSONFormatter, LaTeXFormatter, Result
 )
 

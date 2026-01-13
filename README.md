@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="docs/assets/logo.png" alt="astr0" width="200">
+  <img src="docs/assets/logo.png" alt="starward" width="200">
 </p>
 
-<h1 align="center">astr0</h1>
+<h1 align="center">starward</h1>
 
 <p align="center">
   <strong>An Educational Astronomy Calculation Toolkit</strong>
@@ -28,10 +28,10 @@ Most astronomy software treats calculations as black boxes. You input coordinate
 
 ## The Solution
 
-**astr0** is different. Every calculation can show its work with `--verbose` mode, transforming opaque computations into transparent learning opportunities. Whether you're a student of celestial mechanics, an amateur astronomer planning observations, or a researcher who wants to understand their tools, astr0 is built to illuminate.
+**starward** is different. Every calculation can show its work with `--verbose` mode, transforming opaque computations into transparent learning opportunities. Whether you're a student of celestial mechanics, an amateur astronomer planning observations, or a researcher who wants to understand their tools, starward is built to illuminate.
 
 ```
-$ astr0 --verbose angle sep "10h00m +45d" "10h30m +46d"
+$ starward --verbose angle sep "10h00m +45d" "10h30m +46d"
 
 ╭─ Angular Separation ─────────────────────────────────────────────╮
 │                                                                  │
@@ -60,15 +60,15 @@ Angular Separation: 5° 16' 37.21"
 ## Installation
 
 ```bash
-pip install astr0
+pip install starward
 ```
 
 **Requirements**: Python 3.9+
 
 For development:
 ```bash
-git clone https://github.com/yourusername/astr0.git
-cd astr0
+git clone https://github.com/yourusername/starward.git
+cd starward
 pip install -e ".[dev]"
 ```
 
@@ -80,96 +80,96 @@ pip install -e ".[dev]"
 
 ```bash
 # Current astronomical time
-astr0 time now
+starward time now
 
 # Convert Julian Date
-astr0 time convert 2451545.0
+starward time convert 2451545.0
 
 # Sidereal time at longitude
-astr0 time lst 2460000.5 -74.0
+starward time lst 2460000.5 -74.0
 ```
 
 ### Sun & Moon
 
 ```bash
 # Solar position
-astr0 sun position
+starward sun position
 
 # Sunrise and sunset
-astr0 sun rise --lat 51.5 --lon -0.1
-astr0 sun set --lat 51.5 --lon -0.1
+starward sun rise --lat 51.5 --lon -0.1
+starward sun set --lat 51.5 --lon -0.1
 
 # Twilight times
-astr0 sun twilight astronomical --lat 51.5 --lon -0.1
+starward sun twilight astronomical --lat 51.5 --lon -0.1
 
 # Current moon phase
-astr0 moon phase
+starward moon phase
 
 # Next full moon
-astr0 moon next full
+starward moon next full
 
 # Moonrise
-astr0 moon rise --lat 40.7 --lon -74.0
+starward moon rise --lat 40.7 --lon -74.0
 ```
 
 ### Planets
 
 ```bash
 # Current position of a planet
-astr0 planets position mars
+starward planets position mars
 
 # All planets summary
-astr0 planets all
+starward planets all
 
 # Planet rise/set/transit
-astr0 planets rise jupiter --lat 40.7 --lon -74.0
-astr0 planets transit saturn --lat 40.7 --lon -74.0
+starward planets rise jupiter --lat 40.7 --lon -74.0
+starward planets transit saturn --lat 40.7 --lon -74.0
 ```
 
 ### Coordinates
 
 ```bash
 # Transform between coordinate systems
-astr0 coord convert "18h36m56s +38d47m01s" galactic
+starward coord convert "18h36m56s +38d47m01s" galactic
 
 # Angular separation
-astr0 angle sep "00h42m44s +41d16m09s" "01h33m51s +30d39m37s"
+starward angle sep "00h42m44s +41d16m09s" "01h33m51s +30d39m37s"
 ```
 
 ### Visibility Planning
 
 ```bash
 # Target altitude now
-astr0 vis altitude "00h42m44s" "+41d16m09s" --lat 40.7 --lon -74.0
+starward vis altitude "00h42m44s" "+41d16m09s" --lat 40.7 --lon -74.0
 
 # Transit time
-astr0 vis transit "00h42m44s" "+41d16m09s" --lat 40.7 --lon -74.0
+starward vis transit "00h42m44s" "+41d16m09s" --lat 40.7 --lon -74.0
 
 # Airmass
-astr0 vis airmass "00h42m44s" "+41d16m09s" --lat 40.7 --lon -74.0
+starward vis airmass "00h42m44s" "+41d16m09s" --lat 40.7 --lon -74.0
 ```
 
 ### Observer Management
 
 ```bash
 # Save your location
-astr0 observer add "Home" 40.7128 -74.0060 --timezone "America/New_York"
+starward observer add "Home" 40.7128 -74.0060 --timezone "America/New_York"
 
 # Set as default
-astr0 observer default "Home"
+starward observer default "Home"
 
 # List saved observers
-astr0 observer list
+starward observer list
 ```
 
 ### Constants
 
 ```bash
 # List all constants
-astr0 const list
+starward const list
 
 # Search constants
-astr0 const search solar
+starward const search solar
 ```
 
 ---
@@ -209,17 +209,17 @@ astr0 const search solar
 
 ## Python API
 
-Use astr0 as a library in your Python projects:
+Use starward as a library in your Python projects:
 
 ```python
-from astr0.core.time import JulianDate, jd_now
-from astr0.core.coords import ICRSCoord
-from astr0.core.angles import Angle, angular_separation
-from astr0.core.sun import sun_position, sunrise, sunset
-from astr0.core.moon import moon_phase, next_phase, MoonPhase
-from astr0.core.observer import Observer
-from astr0.core.visibility import airmass, target_altitude, compute_visibility
-from astr0.core.planets import Planet, planet_position, all_planet_positions
+from starward.core.time import JulianDate, jd_now
+from starward.core.coords import ICRSCoord
+from starward.core.angles import Angle, angular_separation
+from starward.core.sun import sun_position, sunrise, sunset
+from starward.core.moon import moon_phase, next_phase, MoonPhase
+from starward.core.observer import Observer
+from starward.core.visibility import airmass, target_altitude, compute_visibility
+from starward.core.planets import Planet, planet_position, all_planet_positions
 
 # Time
 jd = jd_now()
@@ -265,7 +265,7 @@ all_planets = all_planet_positions(jd)
 Every function can explain itself. Use verbose mode to see the mathematics:
 
 ```python
-from astr0.verbose import VerboseContext
+from starward.verbose import VerboseContext
 
 ctx = VerboseContext()
 result = angular_separation(ra1, dec1, ra2, dec2, verbose=ctx)
@@ -276,7 +276,7 @@ for step in ctx.steps:
 
 ### 2. **Education First**
 
-astr0 is designed for learning. The code is documented, the algorithms are cited, and the output explains itself.
+starward is designed for learning. The code is documented, the algorithms are cited, and the output explains itself.
 
 ### 3. **Precision Matters**
 
@@ -290,13 +290,13 @@ Start simple, go deep when needed:
 
 ```bash
 # Simple: just the answer
-astr0 sun rise --lat 51.5 --lon -0.1
+starward sun rise --lat 51.5 --lon -0.1
 
 # Intermediate: JSON for scripting
-astr0 --json sun rise --lat 51.5 --lon -0.1
+starward --json sun rise --lat 51.5 --lon -0.1
 
 # Advanced: show all work
-astr0 --verbose sun rise --lat 51.5 --lon -0.1
+starward --verbose sun rise --lat 51.5 --lon -0.1
 ```
 
 ---
@@ -321,19 +321,19 @@ astr0 --verbose sun rise --lat 51.5 --lon -0.1
 
 ## Command Shortcuts
 
-For speed, astr0 supports command aliases:
+For speed, starward supports command aliases:
 
 | Full Command | Shortcut |
 |--------------|----------|
-| `astr0 time` | `astr0 t` |
-| `astr0 angle` | `astr0 a` |
-| `astr0 coord` | `astr0 c` |
-| `astr0 const` | `astr0 k` |
-| `astr0 sun` | `astr0 s` |
-| `astr0 moon` | `astr0 m` |
-| `astr0 planets` | `astr0 p` |
-| `astr0 observer` | `astr0 o` |
-| `astr0 vis` | `astr0 v` |
+| `starward time` | `starward t` |
+| `starward angle` | `starward a` |
+| `starward coord` | `starward c` |
+| `starward const` | `starward k` |
+| `starward sun` | `starward s` |
+| `starward moon` | `starward m` |
+| `starward planets` | `starward p` |
+| `starward observer` | `starward o` |
+| `starward vis` | `starward v` |
 
 ---
 
@@ -341,13 +341,13 @@ For speed, astr0 supports command aliases:
 
 ```bash
 # Human-readable (default)
-astr0 time now
+starward time now
 
 # JSON for scripting
-astr0 --json time now
+starward --json time now
 
 # LaTeX for publications
-astr0 --output latex coord convert "18h36m56s +38d47m01s" galactic
+starward --output latex coord convert "18h36m56s +38d47m01s" galactic
 ```
 
 ---
@@ -359,7 +359,7 @@ astr0 --output latex coord convert "18h36m56s +38d47m01s" galactic
 pytest
 
 # Run with coverage
-pytest --cov=astr0
+pytest --cov=starward
 
 # Run specific module tests
 pytest tests/core/test_sun.py
@@ -394,13 +394,13 @@ We welcome contributions of all kinds—code, documentation, tests, and ideas! P
 - Documentation improvements
 - Test coverage expansion
 
-We strive to make contributing easy and rewarding for everyone. Thank you for helping make astr0 shine brighter!
+We strive to make contributing easy and rewarding for everyone. Thank you for helping make starward shine brighter!
 
 ---
 
 ## Acknowledgments
 
-astr0 builds upon decades of astronomical research. Key references:
+starward builds upon decades of astronomical research. Key references:
 
 - Meeus, Jean. *Astronomical Algorithms* (2nd ed.)
 - Urban & Seidelmann. *Explanatory Supplement to the Astronomical Almanac* (3rd ed.)

@@ -12,12 +12,12 @@ from dataclasses import dataclass
 from typing import Optional, Tuple, List
 from enum import Enum
 
-from astr0.core.angles import Angle
-from astr0.core.time import JulianDate, jd_now
-from astr0.core.coords import ICRSCoord
-from astr0.core.observer import Observer
-from astr0.core.constants import CONSTANTS
-from astr0.verbose import VerboseContext, step
+from starward.core.angles import Angle
+from starward.core.time import JulianDate, jd_now
+from starward.core.coords import ICRSCoord
+from starward.core.observer import Observer
+from starward.core.constants import CONSTANTS
+from starward.verbose import VerboseContext, step
 
 
 class MoonPhase(Enum):
@@ -755,7 +755,7 @@ def lunar_distance_to_sun(jd: JulianDate,
     Returns:
         Angular separation as an Angle
     """
-    from astr0.core.sun import sun_position
+    from starward.core.sun import sun_position
     
     moon = moon_position(jd, verbose)
     sun = sun_position(jd, verbose)

@@ -13,8 +13,8 @@ import math
 import pytest
 from hypothesis import given, strategies as st, settings
 
-from astr0.core.angles import Angle, angular_separation, position_angle
-from astr0.verbose import VerboseContext
+from starward.core.angles import Angle, angular_separation, position_angle
+from starward.verbose import VerboseContext
 
 
 # ═══════════════════════════════════════════════════════════════════════════════

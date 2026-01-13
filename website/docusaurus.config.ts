@@ -47,15 +47,15 @@ const absentContrastTheme: PrismTheme = {
 };
 
 const config: Config = {
-  title: 'astr0',
+  title: 'starward',
   tagline: 'Per aspera ad astra — Through hardships to the stars',
   favicon: 'img/favicon.ico',
 
-  url: 'https://oddurs.github.io',
-  baseUrl: '/astr0/',
+  url: 'https://starward.dev',
+  baseUrl: '/',
 
   organizationName: 'oddurs',
-  projectName: 'astr0',
+  projectName: 'starward',
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
@@ -70,11 +70,11 @@ const config: Config = {
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org/',
         '@type': 'SoftwareApplication',
-        name: 'astr0',
+        name: 'starward',
         description: 'Professional astronomy calculation toolkit for Python',
         applicationCategory: 'DeveloperApplication',
         operatingSystem: 'Cross-platform',
-        url: 'https://oddurs.github.io/astr0/',
+        url: 'https://starward.dev',
         offers: {
           '@type': 'Offer',
           price: '0',
@@ -124,7 +124,7 @@ const config: Config = {
         docs: {
           path: '../docs',
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/oddurs/astr0/tree/master/',
+          editUrl: 'https://github.com/oddurs/starward/tree/master/',
           routeBasePath: 'docs',
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
@@ -137,8 +137,8 @@ const config: Config = {
         },
         blog: {
           showReadingTime: true,
-          blogTitle: 'astr0 Blog',
-          blogDescription: 'Release notes and updates for astr0',
+          blogTitle: 'starward Blog',
+          blogDescription: 'Release notes and updates for starward',
           postsPerPage: 10,
           blogSidebarTitle: 'Recent Posts',
           blogSidebarCount: 'ALL',
@@ -162,19 +162,10 @@ const config: Config = {
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
 
-    image: 'img/astr0-social-card.png',
-
-    // Announcement bar for v0.3.0 release
-    announcementBar: {
-      id: 'v0.3.0',
-      content: 'astr0 v0.3.0 released with planets module! <a href="/astr0/docs/module-guides/planets">Learn more</a>',
-      backgroundColor: '#7c3aed',
-      textColor: '#ffffff',
-      isCloseable: true,
-    },
+    image: 'img/starward-social-card.png',
 
     navbar: {
-      title: 'astr0',
+      title: 'starward',
       hideOnScroll: true,
       items: [
         {
@@ -189,12 +180,12 @@ const config: Config = {
           position: 'left',
         },
         {
-          href: 'https://github.com/oddurs/astr0',
+          href: 'https://github.com/oddurs/starward',
           label: 'GitHub',
           position: 'right',
         },
         {
-          href: 'https://pypi.org/project/astr0/',
+          href: 'https://pypi.org/project/starward/',
           label: 'PyPI',
           position: 'right',
         },
@@ -215,19 +206,19 @@ const config: Config = {
         {
           title: 'Community',
           items: [
-            { label: 'GitHub Issues', href: 'https://github.com/oddurs/astr0/issues' },
-            { label: 'Contributing', href: 'https://github.com/oddurs/astr0/blob/master/CONTRIBUTING.md' },
+            { label: 'GitHub Issues', href: 'https://github.com/oddurs/starward/issues' },
+            { label: 'Contributing', href: 'https://github.com/oddurs/starward/blob/master/CONTRIBUTING.md' },
           ],
         },
         {
           title: 'More',
           items: [
-            { label: 'GitHub', href: 'https://github.com/oddurs/astr0' },
-            { label: 'PyPI', href: 'https://pypi.org/project/astr0/' },
+            { label: 'GitHub', href: 'https://github.com/oddurs/starward' },
+            { label: 'PyPI', href: 'https://pypi.org/project/starward/' },
           ],
         },
       ],
-      copyright: `Copyright ${new Date().getFullYear()} astr0 contributors. Built with Docusaurus.`,
+      copyright: `Copyright ${new Date().getFullYear()} starward contributors. Built with Docusaurus.`,
     },
 
     // Sidebar behavior

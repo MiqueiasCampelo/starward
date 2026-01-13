@@ -26,33 +26,33 @@ This module answers all these questions.
 
 ```bash
 # Target altitude now
-astr0 vis altitude "12h00m00s" "+45d00m00s" --lat 51.5 --lon -0.1
+starward vis altitude "12h00m00s" "+45d00m00s" --lat 51.5 --lon -0.1
 
 # Current airmass
-astr0 vis airmass "12h00m00s" "+45d00m00s" --lat 51.5 --lon -0.1
+starward vis airmass "12h00m00s" "+45d00m00s" --lat 51.5 --lon -0.1
 
 # Transit time
-astr0 vis transit "12h00m00s" "+45d00m00s" --lat 51.5 --lon -0.1
+starward vis transit "12h00m00s" "+45d00m00s" --lat 51.5 --lon -0.1
 
 # Rise and set times
-astr0 vis riseset "12h00m00s" "+45d00m00s" --lat 51.5 --lon -0.1
+starward vis riseset "12h00m00s" "+45d00m00s" --lat 51.5 --lon -0.1
 
 # Moon separation
-astr0 vis moonsep "12h00m00s" "+45d00m00s"
+starward vis moonsep "12h00m00s" "+45d00m00s"
 ```
 
 ### Python API
 
 ```python
-from astr0.core.visibility import (
+from starward.core.visibility import (
     airmass, target_altitude, target_azimuth,
     transit_time, transit_altitude_calc, target_rise_set,
     moon_target_separation, is_night, compute_visibility
 )
-from astr0.core.coords import ICRSCoord
-from astr0.core.observer import Observer
-from astr0.core.time import jd_now
-from astr0.core.angles import Angle
+from starward.core.coords import ICRSCoord
+from starward.core.observer import Observer
+from starward.core.time import jd_now
+from starward.core.angles import Angle
 
 # Setup
 m31 = ICRSCoord.parse("00h42m44s +41d16m09s")  # Andromeda Galaxy
@@ -89,8 +89,8 @@ Airmass measures how much atmosphere light must traverse. Lower is better.
 | ∞ | 0° (horizon) | Below horizon |
 
 ```python
-from astr0.core.visibility import airmass
-from astr0.core.angles import Angle
+from starward.core.visibility import airmass
+from starward.core.angles import Angle
 
 # From altitude
 alt = Angle(degrees=45)
@@ -190,7 +190,7 @@ if rise is None and set_t is None:
 For deep-sky imaging, moonlight is the enemy:
 
 ```python
-from astr0.core.visibility import moon_target_separation
+from starward.core.visibility import moon_target_separation
 
 sep = moon_target_separation(target, jd)
 print(f"Moon separation: {sep.degrees:.1f}°")
@@ -209,7 +209,7 @@ else:
 Is it actually dark?
 
 ```python
-from astr0.core.visibility import is_night
+from starward.core.visibility import is_night
 
 if is_night(observer, jd):
     print("It's nighttime!")
@@ -220,7 +220,7 @@ else:
 For astronomical darkness (Sun below -18°), combine with twilight:
 
 ```python
-from astr0.core.sun import astronomical_twilight
+from starward.core.sun import astronomical_twilight
 
 astro_start, astro_end = astronomical_twilight(observer, jd)
 # True darkness is between these times
@@ -231,7 +231,7 @@ astro_start, astro_end = astronomical_twilight(observer, jd)
 The `compute_visibility()` function provides a complete assessment:
 
 ```python
-from astr0.core.visibility import compute_visibility
+from starward.core.visibility import compute_visibility
 
 vis = compute_visibility(target, observer, jd)
 
@@ -253,9 +253,9 @@ vis = compute_visibility(target, observer, jd)
 Example workflow for planning observations:
 
 ```python
-from astr0.core.visibility import *
-from astr0.core.sun import sunset, astronomical_twilight
-from astr0.core.moon import moon_phase
+from starward.core.visibility import *
+from starward.core.sun import sunset, astronomical_twilight
+from starward.core.moon import moon_phase
 
 # Tonight's observation planning
 observer = Observer.from_degrees("Home", 40.7, -74.0)
@@ -315,22 +315,22 @@ plt.show()
 
 ```bash
 # Altitude
-astr0 vis altitude RA DEC --lat LAT --lon LON [--jd JD] [--json]
+starward vis altitude RA DEC --lat LAT --lon LON [--jd JD] [--json]
 
 # Airmass
-astr0 vis airmass RA DEC --lat LAT --lon LON [--jd JD]
+starward vis airmass RA DEC --lat LAT --lon LON [--jd JD]
 
 # Transit
-astr0 vis transit RA DEC --lat LAT --lon LON [--jd JD]
+starward vis transit RA DEC --lat LAT --lon LON [--jd JD]
 
 # Rise/Set
-astr0 vis riseset RA DEC --lat LAT --lon LON [--jd JD]
+starward vis riseset RA DEC --lat LAT --lon LON [--jd JD]
 
 # Moon separation
-astr0 vis moonsep RA DEC [--jd JD]
+starward vis moonsep RA DEC [--jd JD]
 
 # Full visibility report
-astr0 vis report RA DEC --lat LAT --lon LON [--jd JD] [--json]
+starward vis report RA DEC --lat LAT --lon LON [--jd JD] [--json]
 ```
 
 ## See Also

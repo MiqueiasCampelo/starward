@@ -50,22 +50,22 @@ It's less than 1° from the North Celestial Pole.
 
 ---
 
-## Parsing Coordinates in astr0
+## Parsing Coordinates in starward
 
-astr0 understands multiple input formats:
+starward understands multiple input formats:
 
 ```bash
 # HMS/DMS format
-astr0 coords parse "12h30m45.2s +45d15m30s"
+starward coords parse "12h30m45.2s +45d15m30s"
 
 # Colon format
-astr0 coords parse "12:30:45.2 +45:15:30"
+starward coords parse "12:30:45.2 +45:15:30"
 
 # Decimal degrees
-astr0 coords parse "187.6883 45.2583"
+starward coords parse "187.6883 45.2583"
 
 # Mixed
-astr0 coords parse "12h30m +45.5"
+starward coords parse "12h30m +45.5"
 ```
 
 The parser is flexible—it handles signs, optional seconds, and various separators.
@@ -110,7 +110,7 @@ Galactic coordinates reveal the structure of the Milky Way:
 ## Transforming Between ICRS and Galactic
 
 ```bash
-astr0 coords transform "12h30m +45d" --to galactic
+starward coords transform "12h30m +45d" --to galactic
 ```
 
 Output:
@@ -143,7 +143,7 @@ $$\tan(l_{NCP} - l) = \frac{\cos \delta \sin(\alpha - \alpha_{NGP})}{\sin \delta
 To see this calculation step by step:
 
 ```bash
-astr0 --verbose coords transform "12h30m +45d" --to galactic
+starward --verbose coords transform "12h30m +45d" --to galactic
 ```
 
 ---
@@ -171,7 +171,7 @@ astr0 --verbose coords transform "12h30m +45d" --to galactic
 
 **Zenith Distance**: z = 90° - altitude
 
-**Airmass**: How much atmosphere light traverses. astr0 uses the Pickering (2002) formula:
+**Airmass**: How much atmosphere light traverses. starward uses the Pickering (2002) formula:
 
 $$X = \frac{1}{\sin(alt + \frac{244}{165 + 47 \times alt^{1.1}})}$$
 
@@ -180,7 +180,7 @@ This is accurate even near the horizon.
 ### Transforming to Horizontal Coordinates
 
 ```bash
-astr0 coords transform "12h30m +45d" --to altaz --lat 34.05 --lon -118.25
+starward coords transform "12h30m +45d" --to altaz --lat 34.05 --lon -118.25
 ```
 
 This shows where the object appears in the sky from Los Angeles right now.
@@ -252,7 +252,7 @@ Results are shown in the most appropriate format:
 Find M31's current altitude from your location:
 
 ```bash
-astr0 coords transform "00h42m44s +41d16m09s" --to altaz --lat 40.7 --lon -74.0
+starward coords transform "00h42m44s +41d16m09s" --to altaz --lat 40.7 --lon -74.0
 ```
 
 If altitude > 0, it's above the horizon!
@@ -260,7 +260,7 @@ If altitude > 0, it's above the horizon!
 ### "Where is the Galactic Center?"
 
 ```bash
-astr0 coords transform "l=0 b=0" --from galactic --to icrs
+starward coords transform "l=0 b=0" --from galactic --to icrs
 ```
 
 Output: RA ≈ 17h45m40s, Dec ≈ -29°00'
@@ -278,8 +278,8 @@ From latitude -40°: max alt ≈ 90° - |-40 - 38.8| ≈ 11.2° (barely above ho
 ## Python API
 
 ```python
-from astr0.core.coords import ICRSCoord, GalacticCoord, HorizontalCoord
-from astr0.core.angles import Angle
+from starward.core.coords import ICRSCoord, GalacticCoord, HorizontalCoord
+from starward.core.angles import Angle
 
 # Create ICRS coordinates
 coord = ICRSCoord.from_string("12h30m +45d")
@@ -292,7 +292,7 @@ print(f"l = {gal.l.degrees:.4f}°")
 print(f"b = {gal.b.degrees:.4f}°")
 
 # Transform to Horizontal (needs location and time)
-from astr0.core.time import jd_now
+from starward.core.time import jd_now
 jd = jd_now()
 horiz = coord.to_horizontal(
     latitude=Angle(degrees=34.05),

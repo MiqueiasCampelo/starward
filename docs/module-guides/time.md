@@ -7,7 +7,7 @@ sidebar_position: 1
 
 # Time & Julian Dates
 
-Time in astronomy is more nuanced than your watch suggests. This guide explains the time systems astronomers use and how to work with them in astr0.
+Time in astronomy is more nuanced than your watch suggests. This guide explains the time systems astronomers use and how to work with them in starward.
 
 ---
 
@@ -51,7 +51,7 @@ JD starts at noon because astronomers historically made observations at night. H
 ### Get the Current JD
 
 ```bash
-astr0 time now
+starward time now
 ```
 
 Output:
@@ -70,7 +70,7 @@ Output:
 ### Convert a Julian Date to Calendar Date
 
 ```bash
-astr0 time convert 2460000.5
+starward time convert 2460000.5
 ```
 
 Output:
@@ -81,7 +81,7 @@ JD 2460000.500000 = 2023-02-25 00:00:00 UTC
 ### Convert Calendar Date to Julian Date
 
 ```bash
-astr0 time jd 2024 7 4 12 0 0
+starward time jd 2024 7 4 12 0 0
 ```
 
 This converts July 4, 2024 at 12:00:00 UTC to JD.
@@ -106,7 +106,7 @@ This shifts the epoch to **midnight on November 17, 1858**, giving smaller numbe
 ### Converting Between JD and MJD
 
 ```bash
-astr0 time convert 60000 --from mjd
+starward time convert 60000 --from mjd
 ```
 
 Output:
@@ -135,7 +135,7 @@ $$T = \frac{\text{JD} - 2451545.0}{36525}$$
 
 Where 36,525 is the number of days in a Julian century (365.25 × 100).
 
-In astr0, this is shown as "T (J2000)" in the `time now` output.
+In starward, this is shown as "T (J2000)" in the `time now` output.
 
 **Example**: T = 0.26 means we're about 0.26 centuries (26 years) past J2000.0.
 
@@ -168,7 +168,7 @@ Where longitude is in degrees (positive east).
 **Example**: Calculate LST for Los Angeles (longitude -118.25°):
 
 ```bash
-astr0 time lst -- -118.25
+starward time lst -- -118.25
 ```
 
 (The `--` tells the CLI that `-118.25` is a value, not a flag.)
@@ -191,7 +191,7 @@ LST:          23h 13m 14.11s
 Want to see how GMST is calculated? Use verbose mode:
 
 ```bash
-astr0 --verbose time now
+starward --verbose time now
 ```
 
 You'll see the calculation using the IAU 2006 formula:
@@ -233,9 +233,9 @@ Julian Dates make this trivial:
 
 ```bash
 # JD of July 4, 1776
-astr0 time jd 1776 7 4
+starward time jd 1776 7 4
 # JD of July 4, 2026
-astr0 time jd 2026 7 4
+starward time jd 2026 7 4
 # Subtract the results: ~91,311 days (250 years)
 ```
 
@@ -259,7 +259,7 @@ If an object's Right Ascension equals your LST, it's on your meridian—highest 
 For programmatic access:
 
 ```python
-from astr0.core.time import JulianDate, jd_now
+from starward.core.time import JulianDate, jd_now
 
 # Current time
 jd = jd_now()

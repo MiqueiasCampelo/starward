@@ -12,11 +12,11 @@ from __future__ import annotations
 import math
 import pytest
 
-from astr0.core.angles import Angle
-from astr0.core.coords import ICRSCoord
-from astr0.core.time import JulianDate, jd_now
-from astr0.core.observer import Observer
-from astr0.core.visibility import (
+from starward.core.angles import Angle
+from starward.core.coords import ICRSCoord
+from starward.core.time import JulianDate, jd_now
+from starward.core.observer import Observer
+from starward.core.visibility import (
     airmass, target_altitude, target_azimuth,
     transit_time, transit_altitude_calc, target_rise_set,
     moon_target_separation, is_night, compute_visibility,

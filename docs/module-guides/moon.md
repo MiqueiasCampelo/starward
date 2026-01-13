@@ -27,31 +27,31 @@ The Moon's motion is complex—more so than any other celestial body we observe 
 
 ```bash
 # Current lunar position
-astr0 moon position
+starward moon position
 
 # Current phase information
-astr0 moon phase
+starward moon phase
 
 # Moonrise and moonset
-astr0 moon rise --lat 51.5 --lon -0.1
-astr0 moon set --lat 51.5 --lon -0.1
+starward moon rise --lat 51.5 --lon -0.1
+starward moon set --lat 51.5 --lon -0.1
 
 # Next full moon
-astr0 moon next full
+starward moon next full
 
 # Next new moon
-astr0 moon next new
+starward moon next new
 ```
 
 ### Python API
 
 ```python
-from astr0.core.moon import (
+from starward.core.moon import (
     moon_position, moon_phase, moon_altitude,
     moonrise, moonset, next_phase, MoonPhase
 )
-from astr0.core.observer import Observer
-from astr0.core.time import jd_now
+from starward.core.observer import Observer
+from starward.core.time import jd_now
 
 # Create an observer
 greenwich = Observer.from_degrees("Greenwich", 51.4772, -0.0005)
@@ -144,7 +144,7 @@ print(f"Illumination: {phase.percent_illuminated:.0f}%")
 Find the next occurrence of a major phase:
 
 ```python
-from astr0.core.moon import next_phase, MoonPhase
+from starward.core.moon import next_phase, MoonPhase
 
 jd = jd_now()
 
@@ -209,8 +209,8 @@ print(f"This synodic month: {synodic_month:.2f} days")
 For deep-sky observations, moonlight can be problematic. Use the visibility module:
 
 ```python
-from astr0.core.visibility import moon_target_separation
-from astr0.core.coords import ICRSCoord
+from starward.core.visibility import moon_target_separation
+from starward.core.coords import ICRSCoord
 
 target = ICRSCoord.from_degrees(83.63, 22.01)  # M1 Crab Nebula
 sep = moon_target_separation(target, jd)
@@ -246,20 +246,20 @@ For higher precision (sub-arcminute), consider ELP/MPP02 (not yet implemented).
 
 ```bash
 # Position
-astr0 moon position [--jd JD] [--json] [--verbose]
+starward moon position [--jd JD] [--json] [--verbose]
 
 # Phase
-astr0 moon phase [--jd JD] [--json]
+starward moon phase [--jd JD] [--json]
 
 # Rise/Set
-astr0 moon rise --lat LAT --lon LON [--jd JD]
-astr0 moon set --lat LAT --lon LON [--jd JD]
+starward moon rise --lat LAT --lon LON [--jd JD]
+starward moon set --lat LAT --lon LON [--jd JD]
 
 # Altitude
-astr0 moon altitude --lat LAT --lon LON [--jd JD]
+starward moon altitude --lat LAT --lon LON [--jd JD]
 
 # Next phase (full|new|first|last)
-astr0 moon next PHASE [--jd JD]
+starward moon next PHASE [--jd JD]
 ```
 
 ## See Also

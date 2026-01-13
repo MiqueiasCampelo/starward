@@ -9,10 +9,10 @@ from __future__ import annotations
 import math
 import pytest
 
-from astr0.core.angles import Angle
-from astr0.core.time import JulianDate, jd_now
-from astr0.core.observer import Observer
-from astr0.core.planets import (
+from starward.core.angles import Angle
+from starward.core.time import JulianDate, jd_now
+from starward.core.observer import Observer
+from starward.core.planets import (
     Planet, PlanetPosition, PLANET_SYMBOLS,
     planet_position, all_planet_positions,
     planet_altitude, planet_rise, planet_set, planet_transit,

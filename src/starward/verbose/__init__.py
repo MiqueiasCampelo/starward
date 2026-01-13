@@ -1,7 +1,7 @@
 """
 Verbose output system for showing calculation steps.
 
-The "show your work" engine that makes astr0 educational and debuggable.
+The "show your work" engine that makes starward educational and debuggable.
 """
 
 from __future__ import annotations

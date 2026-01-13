@@ -11,10 +11,10 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Optional, Union
 
-from astr0.core.angles import Angle
-from astr0.core.constants import CONSTANTS
-from astr0.core.time import JulianDate
-from astr0.verbose import VerboseContext, step
+from starward.core.angles import Angle
+from starward.core.constants import CONSTANTS
+from starward.core.time import JulianDate
+from starward.verbose import VerboseContext, step
 
 
 class Coordinate(ABC):

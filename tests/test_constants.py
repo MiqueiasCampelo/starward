@@ -4,7 +4,7 @@ Tests for the constants module.
 
 import pytest
 
-from astr0.core.constants import CONSTANTS, Constant
+from starward.core.constants import CONSTANTS, Constant
 
 
 class TestConstant:

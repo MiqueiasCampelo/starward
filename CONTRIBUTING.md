@@ -1,10 +1,10 @@
 
 
-# Contributing to astr0
+# Contributing to starward
 
 > *“Per aspera ad astra” — Through hardships to the stars*
 
-Thank you for your interest in making astr0 better! We welcome contributions from everyone—whether you’re fixing a typo, adding a feature, or improving documentation.
+Thank you for your interest in making starward better! We welcome contributions from everyone—whether you’re fixing a typo, adding a feature, or improving documentation.
 
 ---
 
@@ -85,4 +85,4 @@ By contributing, you agree your work will be licensed under the [MIT License](LI
 
 ---
 
-*Thank you for helping make astr0 shine brighter!*
+*Thank you for helping make starward shine brighter!*

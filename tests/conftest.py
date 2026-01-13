@@ -1,8 +1,8 @@
 """
-pytest configuration and shared fixtures for astr0 test suite.
+pytest configuration and shared fixtures for starward test suite.
 
 This module provides common fixtures, test utilities, and configuration
-that enable clean, modular, context-based testing across all astr0 modules.
+that enable clean, modular, context-based testing across all starward modules.
 
 Architecture:
     tests/
@@ -125,7 +125,7 @@ def distance_tolerance():
 @pytest.fixture
 def sample_angles():
     """Common test angles."""
-    from astr0.core.angles import Angle
+    from starward.core.angles import Angle
     return {
         'zero': Angle(degrees=0),
         'right': Angle(degrees=90),
@@ -146,26 +146,26 @@ def sample_angles():
 @pytest.fixture
 def galactic_center():
     """Galactic center coordinates."""
-    from astr0.core.coords import ICRSCoord
+    from starward.core.coords import ICRSCoord
     # Sgr A* - ICRS J2000
     return ICRSCoord.from_degrees(266.4168, -29.0078)
 
 @pytest.fixture
 def north_celestial_pole():
     """North Celestial Pole."""
-    from astr0.core.coords import ICRSCoord
+    from starward.core.coords import ICRSCoord
     return ICRSCoord.from_degrees(0.0, 90.0)
 
 @pytest.fixture
 def vernal_equinox():
     """Vernal equinox point."""
-    from astr0.core.coords import ICRSCoord
+    from starward.core.coords import ICRSCoord
     return ICRSCoord.from_degrees(0.0, 0.0)
 
 @pytest.fixture
 def famous_stars():
     """Well-known stars with accurate coordinates."""
-    from astr0.core.coords import ICRSCoord
+    from starward.core.coords import ICRSCoord
     return {
         'sirius': ICRSCoord.parse("06h45m08.9s -16d42m58s"),
         'vega': ICRSCoord.parse("18h36m56.3s +38d47m01s"),
@@ -177,7 +177,7 @@ def famous_stars():
 @pytest.fixture
 def messier_objects():
     """Messier objects with accurate coordinates."""
-    from astr0.core.coords import ICRSCoord
+    from starward.core.coords import ICRSCoord
     return {
         'M31': ICRSCoord.parse("00h42m44.3s +41d16m09s"),  # Andromeda
         'M42': ICRSCoord.parse("05h35m17.3s -05d23m28s"),  # Orion Nebula
@@ -194,13 +194,13 @@ def messier_objects():
 @pytest.fixture
 def j2000_epoch():
     """J2000.0 epoch."""
-    from astr0.core.time import JulianDate
+    from starward.core.time import JulianDate
     return JulianDate(2451545.0)
 
 @pytest.fixture
 def known_dates():
     """Well-known dates for testing."""
-    from astr0.core.time import JulianDate
+    from starward.core.time import JulianDate
     return {
         'j2000': JulianDate(2451545.0),           # 2000-01-01 12:00 TT
         'unix_epoch': JulianDate(2440587.5),      # 1970-01-01 00:00 UTC
@@ -217,7 +217,7 @@ def known_dates():
 @pytest.fixture
 def greenwich():
     """Royal Observatory Greenwich."""
-    from astr0.core.observer import Observer
+    from starward.core.observer import Observer
     return Observer.from_degrees(
         name="Greenwich",
         latitude=51.4772,
@@ -229,7 +229,7 @@ def greenwich():
 @pytest.fixture
 def mauna_kea():
     """Mauna Kea Observatory, Hawaii."""
-    from astr0.core.observer import Observer
+    from starward.core.observer import Observer
     return Observer.from_degrees(
         name="Mauna Kea",
         latitude=19.8208,
@@ -241,7 +241,7 @@ def mauna_kea():
 @pytest.fixture
 def paranal():
     """ESO Paranal Observatory, Chile."""
-    from astr0.core.observer import Observer
+    from starward.core.observer import Observer
     return Observer.from_degrees(
         name="Paranal",
         latitude=-24.6253,
@@ -253,7 +253,7 @@ def paranal():
 @pytest.fixture
 def north_pole():
     """North Pole observer."""
-    from astr0.core.observer import Observer
+    from starward.core.observer import Observer
     return Observer.from_degrees(
         name="North Pole",
         latitude=90.0,
@@ -264,7 +264,7 @@ def north_pole():
 @pytest.fixture
 def equator():
     """Observer on the equator."""
-    from astr0.core.observer import Observer
+    from starward.core.observer import Observer
     return Observer.from_degrees(
         name="Equator",
         latitude=0.0,
@@ -280,7 +280,7 @@ def equator():
 @pytest.fixture
 def verbose_context():
     """Create a verbose context for testing."""
-    from astr0.verbose import VerboseContext
+    from starward.verbose import VerboseContext
     return VerboseContext()
 
 
@@ -292,7 +292,7 @@ def verbose_context():
 def assert_angle_close():
     """Assert two angles are close within tolerance."""
     def _assert(angle1, angle2, atol_arcsec=0.1, msg=""):
-        from astr0.core.angles import Angle
+        from starward.core.angles import Angle
         if isinstance(angle1, Angle):
             angle1 = angle1.degrees
         if isinstance(angle2, Angle):
@@ -305,7 +305,7 @@ def assert_angle_close():
 def assert_coord_close():
     """Assert two coordinates are close."""
     def _assert(coord1, coord2, atol_arcsec=1.0, msg=""):
-        from astr0.core.angles import angular_separation
+        from starward.core.angles import angular_separation
         sep = angular_separation(coord1.ra, coord1.dec, coord2.ra, coord2.dec)
         atol_deg = atol_arcsec / 3600.0
         assert sep.degrees < atol_deg, f"{msg}: separation {sep.degrees*3600:.2f}\" > {atol_arcsec}\""
@@ -342,5 +342,5 @@ def cli_runner():
 @pytest.fixture
 def cli_main():
     """Main CLI entry point."""
-    from astr0.cli import main
+    from starward.cli import main
     return main

@@ -1,11 +1,11 @@
 ---
 slug: steady-tracking
-title: "astr0 v0.2.0: Steady Tracking"
+title: "starward v0.2.0: Steady Tracking"
 authors: [oddur]
 tags: [release]
 ---
 
-Version 0.2.0 "Steady Tracking" brings the Sun and Moon into astr0, along with comprehensive observation planning tools. This release transforms astr0 from a coordinate toolkit into a complete observation planning assistant.
+Version 0.2.0 "Steady Tracking" brings the Sun and Moon into starward, along with comprehensive observation planning tools. This release transforms starward from a coordinate toolkit into a complete observation planning assistant.
 
 <!-- truncate -->
 
@@ -21,9 +21,9 @@ Calculate everything you need to know about our nearest star:
 - **Equation of Time**: The difference between solar and clock time
 
 ```bash
-astr0 sun position --observer "New York"
-astr0 sun rise --observer "Tokyo"
-astr0 sun twilight --type astronomical
+starward sun position --observer "New York"
+starward sun rise --observer "Tokyo"
+starward sun twilight --type astronomical
 ```
 
 ### Moon Module
@@ -36,8 +36,8 @@ Track Earth's companion through its phases:
 - **Next Phase**: When to expect the next full or new moon
 
 ```bash
-astr0 moon phase --verbose
-astr0 moon rise --observer "London"
+starward moon phase --verbose
+starward moon rise --observer "London"
 ```
 
 ### Observer Module
@@ -45,9 +45,9 @@ astr0 moon rise --observer "London"
 Save and manage your observing locations:
 
 ```bash
-astr0 observer add "Home" --lat 40.7128 --lon -74.0060 --tz "America/New_York"
-astr0 observer list
-astr0 observer use "Home"
+starward observer add "Home" --lat 40.7128 --lon -74.0060 --tz "America/New_York"
+starward observer list
+starward observer use "Home"
 ```
 
 Locations are stored in a simple TOML file and persist between sessions.
@@ -62,16 +62,16 @@ Plan your observations with precision:
 - **Moon Separation**: Avoid lunar interference
 
 ```bash
-astr0 visibility airmass --alt 45
-astr0 visibility transit "Vega" --observer "Home"
+starward visibility airmass --alt 45
+starward visibility transit "Vega" --observer "Home"
 ```
 
 ## LaTeX Output
 
-For academic use, astr0 now supports LaTeX-formatted output:
+For academic use, starward now supports LaTeX-formatted output:
 
 ```bash
-astr0 sun position --format latex
+starward sun position --format latex
 ```
 
 ## Quality Milestone
@@ -86,9 +86,9 @@ This release includes over 500 tests validated against authoritative sources:
 ## Getting Started
 
 ```bash
-pip install astr0
+pip install starward
 ```
 
 ## What's Next
 
-v0.3.0 will extend astr0 to the planets — Mercury through Neptune. Position calculations, magnitude, elongation, and opposition timing are all on the roadmap.
+v0.3.0 will extend starward to the planets — Mercury through Neptune. Position calculations, magnitude, elongation, and opposition timing are all on the roadmap.

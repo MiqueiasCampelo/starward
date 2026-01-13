@@ -41,31 +41,31 @@ Planetary positions are essential for observation planning and understanding sol
 
 ```bash
 # Single planet position
-astr0 planets position mars
+starward planets position mars
 
 # All planets summary
-astr0 planets all
+starward planets all
 
 # Planet rise/set times
-astr0 planets rise jupiter --lat 40.7 --lon -74.0
-astr0 planets set saturn --lat 40.7 --lon -74.0
+starward planets rise jupiter --lat 40.7 --lon -74.0
+starward planets set saturn --lat 40.7 --lon -74.0
 
 # Transit time (when planet is highest)
-astr0 planets transit jupiter --lat 40.7 --lon -74.0
+starward planets transit jupiter --lat 40.7 --lon -74.0
 
 # Current altitude
-astr0 planets altitude mars --lat 40.7 --lon -74.0
+starward planets altitude mars --lat 40.7 --lon -74.0
 ```
 
 ### Python API
 
 ```python
-from astr0.core.planets import (
+from starward.core.planets import (
     Planet, planet_position, all_planet_positions,
     planet_rise, planet_set, planet_transit, planet_altitude
 )
-from astr0.core.observer import Observer
-from astr0.core.time import jd_now
+from starward.core.observer import Observer
+from starward.core.time import jd_now
 
 # Get current Mars position
 jd = jd_now()
@@ -217,11 +217,11 @@ print(f"Venus elongation: {venus.elongation.degrees:.1f}°")
 See the calculation steps:
 
 ```bash
-astr0 planets position mars --verbose
+starward planets position mars --verbose
 ```
 
 ```python
-from astr0.verbose import VerboseContext
+from starward.verbose import VerboseContext
 
 ctx = VerboseContext()
 pos = planet_position(Planet.MARS, jd, verbose=ctx)

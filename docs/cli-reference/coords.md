@@ -11,27 +11,27 @@ Coordinate transformations between astronomical systems.
 
 ## Commands
 
-### `astr0 coords transform`
+### `starward coords transform`
 
 Transform coordinates between systems.
 
 ```bash
 # ICRS to Galactic
-astr0 coords transform "12h30m45s +45d30m00s" --to galactic
+starward coords transform "12h30m45s +45d30m00s" --to galactic
 
 # Galactic to ICRS
-astr0 coords transform "l=120 b=+30" --to icrs
+starward coords transform "l=120 b=+30" --to icrs
 
 # To horizontal (requires observer)
-astr0 coords transform "12h30m +45d" --to horizontal --lat 40.7 --lon -74.0
+starward coords transform "12h30m +45d" --to horizontal --lat 40.7 --lon -74.0
 ```
 
-### `astr0 coords parse`
+### `starward coords parse`
 
 Parse and display coordinate formats.
 
 ```bash
-astr0 coords parse "18h36m56s +38d47m01s"
+starward coords parse "18h36m56s +38d47m01s"
 ```
 
 ## Supported Systems
@@ -44,7 +44,7 @@ astr0 coords parse "18h36m56s +38d47m01s"
 
 ## Coordinate Formats
 
-astr0 accepts flexible input formats:
+starward accepts flexible input formats:
 
 ```bash
 # Sexagesimal
@@ -62,20 +62,20 @@ astr0 accepts flexible input formats:
 
 ```bash
 # Vega's galactic coordinates
-astr0 coords transform "18h36m56s +38d47m01s" --to galactic
+starward coords transform "18h36m56s +38d47m01s" --to galactic
 
 # M31 altitude from New York
-astr0 coords transform "00h42m44s +41d16m09s" --to horizontal \
+starward coords transform "00h42m44s +41d16m09s" --to horizontal \
   --lat 40.7 --lon -74.0
 
 # Verbose transformation
-astr0 coords transform "12h +45d" --to galactic --verbose
+starward coords transform "12h +45d" --to galactic --verbose
 ```
 
 ## Python API
 
 ```python
-from astr0 import ICRSCoord, GalacticCoord
+from starward import ICRSCoord, GalacticCoord
 
 # Parse coordinates
 vega = ICRSCoord.parse("18h36m56s +38d47m01s")

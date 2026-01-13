@@ -12,10 +12,10 @@ from __future__ import annotations
 import math
 import pytest
 
-from astr0.core.angles import Angle
-from astr0.core.time import JulianDate, jd_now
-from astr0.core.observer import Observer
-from astr0.core.sun import (
+from starward.core.angles import Angle
+from starward.core.time import JulianDate, jd_now
+from starward.core.observer import Observer
+from starward.core.sun import (
     sun_position, sunrise, sunset, solar_noon,
     civil_twilight, nautical_twilight, astronomical_twilight,
     solar_altitude, day_length, SunPosition

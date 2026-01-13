@@ -7,7 +7,7 @@ sidebar_position: 3
 
 # Angular Calculations
 
-Angles are the fundamental unit of positional astronomy. This guide covers how to work with angles in astr0, calculate separations between objects, and find position angles.
+Angles are the fundamental unit of positional astronomy. This guide covers how to work with angles in starward, calculate separations between objects, and find position angles.
 
 ---
 
@@ -35,14 +35,14 @@ Right Ascension is traditionally measured in hours because the celestial sphere 
 
 ## The Angle Class
 
-In astr0, the `Angle` class handles all angle representations and conversions.
+In starward, the `Angle` class handles all angle representations and conversions.
 
 ### Creating Angles
 
 ```bash
 # In the CLI, convert between formats
-astr0 angles convert 45.5 --from deg
-astr0 angles convert 3.0333 --from hours
+starward angles convert 45.5 --from deg
+starward angles convert 3.0333 --from hours
 ```
 
 ### Sexagesimal Notation
@@ -57,14 +57,14 @@ astr0 angles convert 3.0333 --from hours
 
 ### Parsing Angles
 
-astr0's parser handles many formats:
+starward's parser handles many formats:
 
 ```bash
-astr0 coords parse "45d30m15.5s"    # DMS
-astr0 coords parse "12h30m45s"      # HMS
-astr0 coords parse "45:30:15.5"     # Colon notation
-astr0 coords parse "45.504306"      # Decimal degrees
-astr0 coords parse "+45 30 15.5"    # Space-separated
+starward coords parse "45d30m15.5s"    # DMS
+starward coords parse "12h30m45s"      # HMS
+starward coords parse "45:30:15.5"     # Colon notation
+starward coords parse "45.504306"      # Decimal degrees
+starward coords parse "+45 30 15.5"    # Space-separated
 ```
 
 ---
@@ -80,7 +80,7 @@ Think of it as "how far apart do these two objects appear in the sky?"
 ### Calculating Separation
 
 ```bash
-astr0 angles sep "10h30m +30d" "10h35m +31d"
+starward angles sep "10h30m +30d" "10h35m +31d"
 ```
 
 Output:
@@ -98,7 +98,7 @@ Angular Separation:
 
 ### The Vincenty Formula
 
-For small separations, simple formulas work. But for accurate results at any distance, astr0 uses the **Vincenty formula**:
+For small separations, simple formulas work. But for accurate results at any distance, starward uses the **Vincenty formula**:
 
 $$\sigma = \arctan\left(\frac{\sqrt{(\cos\phi_2\sin\Delta\lambda)^2 + (\cos\phi_1\sin\phi_2 - \sin\phi_1\cos\phi_2\cos\Delta\lambda)^2}}{\sin\phi_1\sin\phi_2 + \cos\phi_1\cos\phi_2\cos\Delta\lambda}\right)$$
 
@@ -111,7 +111,7 @@ This formula is numerically stable for any separation, from 0° to 180°.
 ### See the Math
 
 ```bash
-astr0 --verbose angles sep "10h +30d" "11h +31d"
+starward --verbose angles sep "10h +30d" "11h +31d"
 ```
 
 ```text
@@ -162,7 +162,7 @@ Position angles are important for:
 ### Calculating Position Angle
 
 ```bash
-astr0 angles pa "10h30m +30d" "10h35m +31d"
+starward angles pa "10h30m +30d" "10h35m +31d"
 ```
 
 Output:
@@ -186,13 +186,13 @@ The result is normalized to [0°, 360°).
 
 ```bash
 # Degrees to all formats
-astr0 angles convert 45.5 --from deg
+starward angles convert 45.5 --from deg
 
 # Hours to degrees
-astr0 angles convert 12.5 --from hours
+starward angles convert 12.5 --from hours
 
 # Radians to degrees
-astr0 angles convert 0.7854 --from rad
+starward angles convert 0.7854 --from rad
 ```
 
 ### Conversion Table
@@ -251,7 +251,7 @@ Dubhe and Merak in the Big Dipper "point" to Polaris.
 - Merak: 11h 01m 50s, +56° 22' 56"
 
 ```bash
-astr0 angles sep "11h03m43s +61d45m03s" "11h01m50s +56d22m56s"
+starward angles sep "11h03m43s +61d45m03s" "11h01m50s +56d22m56s"
 ```
 
 Answer: About 5.4° apart.
@@ -261,7 +261,7 @@ Answer: About 5.4° apart.
 Albireo is a famous double star. PA tells you the orientation.
 
 ```bash
-astr0 angles pa "19h30m43.3s +27d57m34.8s" "19h30m45.4s +27d57m54.9s"
+starward angles pa "19h30m43.3s +27d57m34.8s" "19h30m45.4s +27d57m54.9s"
 ```
 
 ### Angular size of an object
@@ -278,7 +278,7 @@ $$\theta = \frac{3474}{384400} = 0.00904 \text{ rad} = 0.518° = 31' $$
 ## Python API
 
 ```python
-from astr0.core.angles import Angle, angular_separation, position_angle
+from starward.core.angles import Angle, angular_separation, position_angle
 
 # Create angles various ways
 a1 = Angle(degrees=45.5)
@@ -309,7 +309,7 @@ normalized = a1.normalize(center=180)  # [0, 360)
 print(a1.sin(), a1.cos(), a1.tan())
 
 # Angular separation
-from astr0.core.coords import ICRSCoord
+from starward.core.coords import ICRSCoord
 c1 = ICRSCoord.from_string("10h30m +30d")
 c2 = ICRSCoord.from_string("10h35m +31d")
 sep = angular_separation(c1.ra, c1.dec, c2.ra, c2.dec)

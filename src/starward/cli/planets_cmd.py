@@ -7,14 +7,14 @@ from __future__ import annotations
 import click
 from typing import Optional
 
-from astr0.core.planets import (
+from starward.core.planets import (
     Planet, PlanetPosition, PLANET_SYMBOLS,
     planet_position, all_planet_positions,
     planet_altitude, planet_rise, planet_set, planet_transit,
 )
-from astr0.core.observer import Observer, get_observer
-from astr0.core.time import JulianDate, jd_now
-from astr0.verbose import VerboseContext
+from starward.core.observer import Observer, get_observer
+from starward.core.time import JulianDate, jd_now
+from starward.verbose import VerboseContext
 
 
 # Valid planet names for CLI
@@ -38,14 +38,14 @@ def _get_observer_from_options(lat: Optional[float], lon: Optional[float],
     elif observer_name:
         obs = get_observer(observer_name)
         if obs is None:
-            raise click.ClickException(f"Observer '{observer_name}' not found. Use 'astr0 observer list' to see available observers.")
+            raise click.ClickException(f"Observer '{observer_name}' not found. Use 'starward observer list' to see available observers.")
         return obs
     else:
         obs = get_observer()  # Default observer
         if obs is None:
             raise click.ClickException(
                 "No observer specified. Use --lat/--lon or --observer, "
-                "or add a default observer with 'astr0 observer add'"
+                "or add a default observer with 'starward observer add'"
             )
         return obs
 
@@ -61,9 +61,9 @@ def planets_group():
 
     \b
     Examples:
-        astr0 planets position mars           # Mars position
-        astr0 planets all                     # All planet positions
-        astr0 planets rise jupiter --lat 40.7 --lon -74.0
+        starward planets position mars           # Mars position
+        starward planets all                     # All planet positions
+        starward planets rise jupiter --lat 40.7 --lon -74.0
     """
     pass
 

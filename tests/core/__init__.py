@@ -1,7 +1,7 @@
 """
 Core module tests package.
 
-This package contains unit tests for all astr0 core modules:
+This package contains unit tests for all starward core modules:
     - angles: Angle arithmetic, parsing, trigonometry
     - coords: Coordinate systems and transformations
     - time: Julian dates, sidereal time, calendars

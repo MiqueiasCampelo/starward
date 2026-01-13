@@ -8,14 +8,14 @@ import click
 from datetime import datetime, timezone
 from typing import Optional
 
-from astr0.core.sun import (
+from starward.core.sun import (
     sun_position, sunrise, sunset, solar_noon,
     civil_twilight, nautical_twilight, astronomical_twilight,
     solar_altitude, day_length
 )
-from astr0.core.observer import Observer, get_observer, OBSERVERS
-from astr0.core.time import JulianDate, jd_now
-from astr0.verbose import VerboseContext
+from starward.core.observer import Observer, get_observer, OBSERVERS
+from starward.core.time import JulianDate, jd_now
+from starward.verbose import VerboseContext
 
 
 def _get_observer_from_options(lat: Optional[float], lon: Optional[float], 
@@ -26,14 +26,14 @@ def _get_observer_from_options(lat: Optional[float], lon: Optional[float],
     elif observer_name:
         obs = get_observer(observer_name)
         if obs is None:
-            raise click.ClickException(f"Observer '{observer_name}' not found. Use 'astr0 observer list' to see available observers.")
+            raise click.ClickException(f"Observer '{observer_name}' not found. Use 'starward observer list' to see available observers.")
         return obs
     else:
         obs = get_observer()  # Default observer
         if obs is None:
             raise click.ClickException(
                 "No observer specified. Use --lat/--lon or --observer, "
-                "or add a default observer with 'astr0 observer add'"
+                "or add a default observer with 'starward observer add'"
             )
         return obs
 
@@ -48,9 +48,9 @@ def sun_group():
     
     \b
     Examples:
-        astr0 sun position                    # Current solar position
-        astr0 sun rise --lat 34.05 --lon -118.25
-        astr0 sun twilight --observer home
+        starward sun position                    # Current solar position
+        starward sun rise --lat 34.05 --lon -118.25
+        starward sun twilight --observer home
     """
     pass
 

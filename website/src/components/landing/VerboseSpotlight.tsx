@@ -1,10 +1,10 @@
 import CodeBlock from '@theme/CodeBlock';
 
-const normalOutput = `$ astr0 time jd
+const normalOutput = `$ starward time jd
 
 2460676.50000`;
 
-const verboseOutput = `$ astr0 time jd --verbose
+const verboseOutput = `$ starward time jd --verbose
 
 # Julian Date Calculation
 # Algorithm: Meeus, Astronomical Algorithms (2nd ed.)
@@ -37,7 +37,7 @@ export default function VerboseSpotlight(): JSX.Element {
             See the astronomy, not just the answer
           </h2>
           <p className="verbose-spotlight__description">
-            Traditional astronomy tools are black boxes. astr0 is different.
+            Traditional astronomy tools are black boxes. starward is different.
             Every calculation can show its work with <code>--verbose</code> mode.
           </p>
           <ul className="verbose-spotlight__features">

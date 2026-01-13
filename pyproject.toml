@@ -3,14 +3,14 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "astr0"
+name = "starward"
 version = "0.3.0"
 description = "A professional astronomy calculation toolkit with a soul"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.9"
 authors = [
-    { name = "astr0 contributors" }
+    { name = "starward contributors" }
 ]
 keywords = [
     "astronomy",
@@ -48,15 +48,15 @@ dev = [
 ]
 
 [project.scripts]
-astr0 = "astr0.cli:main"
+starward = "starward.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/astr0/astr0"
-Documentation = "https://github.com/astr0/astr0#readme"
-Repository = "https://github.com/astr0/astr0"
+Homepage = "https://starward.dev"
+Documentation = "https://starward.dev/docs/"
+Repository = "https://github.com/oddurs/starward"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/astr0"]
+packages = ["src/starward"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -85,7 +85,7 @@ warn_return_any = true
 warn_unused_ignores = true
 
 [tool.coverage.run]
-source = ["src/astr0"]
+source = ["src/starward"]
 branch = true
 
 [tool.coverage.report]

@@ -1,5 +1,5 @@
 """
-Precision and formatting standards for astr0.
+Precision and formatting standards for starward.
 
 This module defines precision levels for numerical output across the toolkit.
 All calculations are performed in full IEEE 754 double precision (float64),

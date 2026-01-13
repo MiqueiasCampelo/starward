@@ -8,15 +8,15 @@ import click
 import json
 from typing import Optional
 
-from astr0.core.visibility import (
+from starward.core.visibility import (
     airmass, target_altitude, target_azimuth,
     transit_time, transit_altitude_calc, target_rise_set,
     moon_target_separation, is_night, compute_visibility
 )
-from astr0.core.coords import ICRSCoord
-from astr0.core.time import JulianDate, jd_now
-from astr0.core.observer import Observer, OBSERVERS
-from astr0.verbose import VerboseContext
+from starward.core.coords import ICRSCoord
+from starward.core.time import JulianDate, jd_now
+from starward.core.observer import Observer, OBSERVERS
+from starward.verbose import VerboseContext
 
 
 def _get_observer_from_options(lat: Optional[float], lon: Optional[float],
@@ -25,7 +25,7 @@ def _get_observer_from_options(lat: Optional[float], lon: Optional[float],
     if observer_name:
         obs = OBSERVERS.get(observer_name)
         if obs is None:
-            raise click.ClickException(f"Observer '{observer_name}' not found. Use 'astr0 observer list'")
+            raise click.ClickException(f"Observer '{observer_name}' not found. Use 'starward observer list'")
         return obs
     elif lat is not None and lon is not None:
         return Observer.from_degrees(
@@ -53,9 +53,9 @@ def vis_group():
     
     \b
     Examples:
-        astr0 vis altitude "00h42m +41d16m" --observer greenwich
-        astr0 vis airmass "12h30m +45d" --lat 34.05 --lon -118.25
-        astr0 vis transit "06h45m -16d43m" --observer home
+        starward vis altitude "00h42m +41d16m" --observer greenwich
+        starward vis airmass "12h30m +45d" --lat 34.05 --lon -118.25
+        starward vis transit "06h45m -16d43m" --observer home
     """
     pass
 
@@ -344,7 +344,7 @@ def airmass_cmd(ctx, alt: float):
     
     vctx = VerboseContext() if verbose else None
     
-    from astr0.core.angles import Angle
+    from starward.core.angles import Angle
     altitude = Angle(degrees=alt)
     X = airmass(altitude, vctx)
     

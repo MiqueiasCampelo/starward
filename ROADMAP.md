@@ -1,4 +1,4 @@
-# astr0 — Astronomy Calculation Toolkit
+# starward — Astronomy Calculation Toolkit
 
 > *"Per aspera ad astra"* — Through hardships to the stars
 
@@ -40,12 +40,12 @@ The foundational release. Core infrastructure and essential calculations.
 ### CLI Commands (v0.1)
 
 ```bash
-astr0 time now                    # Current time in all formats
-astr0 time convert <value>        # Convert between time systems
-astr0 coord convert <coords>      # Transform coordinates
-astr0 angle sep <c1> <c2>         # Angular separation
-astr0 --verbose <command>         # Show calculation steps
-astr0 --output json <command>     # JSON output
+starward time now                    # Current time in all formats
+starward time convert <value>        # Convert between time systems
+starward coord convert <coords>      # Transform coordinates
+starward angle sep <c1> <c2>         # Angular separation
+starward --verbose <command>         # Show calculation steps
+starward --output json <command>     # JSON output
 ```
 
 ---
@@ -65,7 +65,7 @@ Position calculations and solar system awareness.
 
 ### Enhancements
 
-- [x] Observer profile saving (~/.astr0/observers.toml)
+- [x] Observer profile saving (~/.starward/observers.toml)
 - [x] LaTeX output option
 - [x] Rise/set/transit calculations
 - [x] Airmass calculations
@@ -76,25 +76,25 @@ Position calculations and solar system awareness.
 
 ```bash
 # Sun commands
-astr0 sun position                 # Current solar position
-astr0 sun rise --lat 51.5 --lon -0.1
-astr0 sun set --lat 51.5 --lon -0.1
-astr0 sun twilight astronomical --lat 51.5 --lon -0.1
+starward sun position                 # Current solar position
+starward sun rise --lat 51.5 --lon -0.1
+starward sun set --lat 51.5 --lon -0.1
+starward sun twilight astronomical --lat 51.5 --lon -0.1
 
 # Moon commands
-astr0 moon position                # Current lunar position
-astr0 moon phase                   # Current phase
-astr0 moon next full               # Next full moon
+starward moon position                # Current lunar position
+starward moon phase                   # Current phase
+starward moon next full               # Next full moon
 
 # Observer commands
-astr0 observer add "Home" 40.7 -74.0
-astr0 observer list
-astr0 observer default "Home"
+starward observer add "Home" 40.7 -74.0
+starward observer list
+starward observer default "Home"
 
 # Visibility commands
-astr0 vis altitude "00h42m44s" "+41d16m09s" --lat 40.7 --lon -74.0
-astr0 vis transit "00h42m44s" "+41d16m09s" --lat 40.7 --lon -74.0
-astr0 vis airmass "00h42m44s" "+41d16m09s" --lat 40.7 --lon -74.0
+starward vis altitude "00h42m44s" "+41d16m09s" --lat 40.7 --lon -74.0
+starward vis transit "00h42m44s" "+41d16m09s" --lat 40.7 --lon -74.0
+starward vis airmass "00h42m44s" "+41d16m09s" --lat 40.7 --lon -74.0
 ```
 
 ---
@@ -123,14 +123,14 @@ Solar system ephemerides and planetary positions.
 
 ```bash
 # Planet positions
-astr0 planets position mars          # Single planet position
-astr0 planets all                    # All planets summary
+starward planets position mars          # Single planet position
+starward planets all                    # All planets summary
 
 # Planet visibility
-astr0 planets rise jupiter --lat 40.7 --lon -74.0
-astr0 planets set saturn --lat 40.7 --lon -74.0
-astr0 planets transit jupiter --lat 40.7 --lon -74.0
-astr0 planets altitude mars --lat 40.7 --lon -74.0
+starward planets rise jupiter --lat 40.7 --lon -74.0
+starward planets set saturn --lat 40.7 --lon -74.0
+starward planets transit jupiter --lat 40.7 --lon -74.0
+starward planets altitude mars --lat 40.7 --lon -74.0
 ```
 
 ---
@@ -199,7 +199,7 @@ Professional observatory support.
 
 ## 🎨 Future Horizons (v1.0+)
 
-- **Python API**: Import astr0 as a library
+- **Python API**: Import starward as a library
 - **Web interface**: Browser-based calculator
 - **Plugin system**: Community extensions
 - **GPU acceleration**: For heavy ephemeris work
@@ -211,8 +211,8 @@ Professional observatory support.
 ## 🏗️ Architecture Principles
 
 ```
-astr0/
-├── src/astr0/
+starward/
+├── src/starward/
 │   ├── cli/           # Click-based CLI commands
 │   ├── core/          # Core calculation modules
 │   ├── output/        # Formatters (plain, json, latex)
@@ -270,7 +270,7 @@ tests/
 
 ## 🌠 The Name
 
-**astr0** — Where astronomy meets code. The zero represents:
+**starward** — Where astronomy meets code. The zero represents:
 - The origin point of our coordinate systems
 - The null hypothesis we test against
 - The first index (we're programmers, after all)

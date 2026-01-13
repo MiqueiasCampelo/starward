@@ -12,7 +12,7 @@ from __future__ import annotations
 import math
 import pytest
 
-from astr0.core.constants import CONSTANTS, Constant
+from starward.core.constants import CONSTANTS, Constant
 
 
 # ═══════════════════════════════════════════════════════════════════════════════

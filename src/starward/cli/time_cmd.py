@@ -6,10 +6,10 @@ import click
 from datetime import datetime, timezone
 from typing import Optional
 
-from astr0.core.time import JulianDate, jd_now, jd_to_mjd
-from astr0.core.precision import get_precision
-from astr0.verbose import VerboseContext
-from astr0.output.formatters import Result, format_output
+from starward.core.time import JulianDate, jd_now, jd_to_mjd
+from starward.core.precision import get_precision
+from starward.verbose import VerboseContext
+from starward.output.formatters import Result, format_output
 
 
 @click.group(name='time')
@@ -22,10 +22,10 @@ def time_group():
     
     \b
     Examples:
-        astr0 time now                    # Current time in all formats
-        astr0 time convert 2460000.5      # Convert JD to calendar
-        astr0 time jd 2024 1 15 12 0 0    # Calendar to JD
-        astr0 time lst -118.25            # Local Sidereal Time
+        starward time now                    # Current time in all formats
+        starward time convert 2460000.5      # Convert JD to calendar
+        starward time jd 2024 1 15 12 0 0    # Calendar to JD
+        starward time lst -118.25            # Local Sidereal Time
     """
     pass
 
@@ -120,8 +120,8 @@ def convert(ctx, value: float, from_fmt: str):
     
     \b
     Examples:
-        astr0 time convert 2460000.5
-        astr0 time convert 60000 --from mjd
+        starward time convert 2460000.5
+        starward time convert 60000 --from mjd
     """
     verbose = ctx.obj.get('verbose', False)
     output_fmt = ctx.obj.get('output', 'plain')
@@ -173,8 +173,8 @@ def jd(ctx, year: int, month: int, day: int, hour: int, minute: int, second: flo
     
     \b
     Examples:
-        astr0 time jd 2024 1 15
-        astr0 time jd 2024 6 21 12 0 0
+        starward time jd 2024 1 15
+        starward time jd 2024 6 21 12 0 0
     """
     verbose = ctx.obj.get('verbose', False)
     output_fmt = ctx.obj.get('output', 'plain')
@@ -220,8 +220,8 @@ def lst(ctx, longitude: float, jd_value: Optional[float]):
     
     \b
     Examples:
-        astr0 time lst -118.25                    # Los Angeles, now
-        astr0 time lst 0 --jd 2460000.5           # Greenwich
+        starward time lst -118.25                    # Los Angeles, now
+        starward time lst 0 --jd 2460000.5           # Greenwich
     """
     verbose = ctx.obj.get('verbose', False)
     output_fmt = ctx.obj.get('output', 'plain')

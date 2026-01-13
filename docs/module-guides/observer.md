@@ -24,25 +24,25 @@ Your position on Earth fundamentally shapes what you see in the sky. The Observe
 
 ```bash
 # Add a new observer location
-astr0 observer add "Backyard" 40.7128 -74.0060 --elevation 10 --timezone "America/New_York"
+starward observer add "Backyard" 40.7128 -74.0060 --elevation 10 --timezone "America/New_York"
 
 # List saved observers
-astr0 observer list
+starward observer list
 
 # Show observer details
-astr0 observer show "Backyard"
+starward observer show "Backyard"
 
 # Set default observer
-astr0 observer default "Backyard"
+starward observer default "Backyard"
 
 # Remove an observer
-astr0 observer remove "Backyard"
+starward observer remove "Backyard"
 ```
 
 ### Python API
 
 ```python
-from astr0.core.observer import Observer, ObserverManager
+from starward.core.observer import Observer, ObserverManager
 
 # Create an observer directly
 greenwich = Observer.from_degrees(
@@ -54,8 +54,8 @@ greenwich = Observer.from_degrees(
 )
 
 # Use in calculations
-from astr0.core.sun import sunrise, sunset
-from astr0.core.time import jd_now
+from starward.core.sun import sunrise, sunset
+from starward.core.time import jd_now
 
 jd = jd_now()
 rise = sunrise(greenwich, jd)
@@ -120,9 +120,9 @@ print(obs.longitude)   # Angle object
 The `ObserverManager` handles saving and loading observer profiles:
 
 ```python
-from astr0.core.observer import ObserverManager
+from starward.core.observer import ObserverManager
 
-# Get the manager (creates ~/.astr0/ if needed)
+# Get the manager (creates ~/.starward/ if needed)
 manager = ObserverManager()
 
 # Add an observer
@@ -148,7 +148,7 @@ manager.remove("Home")
 
 ### Configuration File
 
-Observers are stored in `~/.astr0/observers.toml`:
+Observers are stored in `~/.starward/observers.toml`:
 
 ```toml
 # Default observer
@@ -197,7 +197,7 @@ greenwich = Observer.from_degrees(
 ### Sun Module
 
 ```python
-from astr0.core.sun import sunrise, sunset, solar_noon
+from starward.core.sun import sunrise, sunset, solar_noon
 
 rise = sunrise(observer, jd)
 set_t = sunset(observer, jd)
@@ -207,7 +207,7 @@ noon = solar_noon(observer, jd)
 ### Moon Module
 
 ```python
-from astr0.core.moon import moonrise, moonset, moon_altitude
+from starward.core.moon import moonrise, moonset, moon_altitude
 
 rise = moonrise(observer, jd)
 alt = moon_altitude(observer, jd)
@@ -216,7 +216,7 @@ alt = moon_altitude(observer, jd)
 ### Visibility Module
 
 ```python
-from astr0.core.visibility import (
+from starward.core.visibility import (
     target_altitude, transit_time, compute_visibility
 )
 
@@ -228,7 +228,7 @@ vis = compute_visibility(target_coord, observer, jd)
 ### Coordinate Transformations
 
 ```python
-from astr0.core.coords import HorizontalCoord
+from starward.core.coords import HorizontalCoord
 
 # ICRS to horizontal (requires observer location)
 horiz = HorizontalCoord.from_icrs(
@@ -293,19 +293,19 @@ obs = Observer.from_dict(d)
 
 ```bash
 # Add observer
-astr0 observer add NAME LAT LON [--elevation M] [--timezone TZ]
+starward observer add NAME LAT LON [--elevation M] [--timezone TZ]
 
 # List observers
-astr0 observer list [--json]
+starward observer list [--json]
 
 # Show observer
-astr0 observer show NAME [--json]
+starward observer show NAME [--json]
 
 # Set default
-astr0 observer default NAME
+starward observer default NAME
 
 # Remove observer
-astr0 observer remove NAME
+starward observer remove NAME
 ```
 
 ## See Also

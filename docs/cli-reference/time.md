@@ -11,37 +11,37 @@ Time system conversions and calculations.
 
 ## Commands
 
-### `astr0 time now`
+### `starward time now`
 
 Display current time in multiple formats.
 
 ```bash
-astr0 time now
+starward time now
 ```
 
 Output includes UTC, Julian Date, Modified Julian Date, and Unix timestamp.
 
-### `astr0 time convert`
+### `starward time convert`
 
 Convert between time formats.
 
 ```bash
 # From Julian Date
-astr0 time convert 2451545.0
+starward time convert 2451545.0
 
 # From ISO date
-astr0 time convert "2000-01-01T12:00:00"
+starward time convert "2000-01-01T12:00:00"
 
 # From Unix timestamp
-astr0 time convert 946728000
+starward time convert 946728000
 ```
 
-### `astr0 time jd`
+### `starward time jd`
 
 Get Julian Date for a specific time.
 
 ```bash
-astr0 time jd "2024-06-21 12:00:00"
+starward time jd "2024-06-21 12:00:00"
 ```
 
 ## Time Systems
@@ -57,19 +57,19 @@ astr0 time jd "2024-06-21 12:00:00"
 
 ```bash
 # Current time with verbose calculation
-astr0 time now --verbose
+starward time now --verbose
 
 # JSON output for scripting
-astr0 time now --json
+starward time now --json
 
 # Convert J2000.0 epoch
-astr0 time convert 2451545.0
+starward time convert 2451545.0
 ```
 
 ## Python API
 
 ```python
-from astr0 import JulianDate, jd_now, utc_to_jd
+from starward import JulianDate, jd_now, utc_to_jd
 
 # Current time
 now = jd_now()

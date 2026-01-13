@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-astr0 Test Runner
+starward Test Runner
 
-A clean test runner with multiple output modes for the astr0 test suite.
+A clean test runner with multiple output modes for the starward test suite.
 
 Usage:
     python run_tests.py              # Quick run (default)
@@ -20,7 +20,7 @@ from pathlib import Path
 
 def main():
     parser = argparse.ArgumentParser(
-        description="astr0 Test Runner",
+        description="starward Test Runner",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -59,7 +59,7 @@ Examples:
     
     # Output mode
     if args.full:
-        cmd.extend(['-v', '--cov=astr0', '--cov-report=term-missing', '--cov-report=html'])
+        cmd.extend(['-v', '--cov=starward', '--cov-report=term-missing', '--cov-report=html'])
         print_header("Full Test Run with Coverage")
     elif args.verbose:
         cmd.append('-v')

@@ -27,31 +27,31 @@ The Sun is not only our nearest star but also the fundamental timekeeping refere
 
 ```bash
 # Current solar position
-astr0 sun position
+starward sun position
 
 # Sunrise for today at a location
-astr0 sun rise --lat 51.5 --lon -0.1
+starward sun rise --lat 51.5 --lon -0.1
 
 # Sunset
-astr0 sun set --lat 51.5 --lon -0.1
+starward sun set --lat 51.5 --lon -0.1
 
 # Civil twilight times
-astr0 sun twilight civil --lat 51.5 --lon -0.1
+starward sun twilight civil --lat 51.5 --lon -0.1
 
 # Solar altitude at current time
-astr0 sun altitude --lat 51.5 --lon -0.1
+starward sun altitude --lat 51.5 --lon -0.1
 ```
 
 ### Python API
 
 ```python
-from astr0.core.sun import (
+from starward.core.sun import (
     sun_position, sunrise, sunset, solar_noon,
     civil_twilight, nautical_twilight, astronomical_twilight,
     solar_altitude, day_length
 )
-from astr0.core.observer import Observer
-from astr0.core.time import jd_now
+from starward.core.observer import Observer
+from starward.core.time import jd_now
 
 # Create an observer
 greenwich = Observer.from_degrees("Greenwich", 51.4772, -0.0005)
@@ -180,7 +180,7 @@ hours = day_length(arctic, summer_jd)
 Solar declination varies from -23.4° (winter solstice) to +23.4° (summer solstice):
 
 ```python
-from astr0.core.time import JulianDate
+from starward.core.time import JulianDate
 
 # Check solar declination throughout the year
 for month in range(1, 13):
@@ -194,7 +194,7 @@ for month in range(1, 13):
 Enable verbose mode to see calculation steps:
 
 ```python
-from astr0.verbose import VerboseContext
+from starward.verbose import VerboseContext
 
 ctx = VerboseContext()
 pos = sun_position(jd, verbose=ctx)

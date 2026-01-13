@@ -1,25 +1,25 @@
 ---
 slug: first-light
-title: "astr0 v0.1.0: First Light"
+title: "starward v0.1.0: First Light"
 authors: [oddur]
 tags: [release]
 ---
 
-Today marks the first release of astr0, an educational astronomy calculation toolkit for Python. The name comes from the astronomical tradition of "first light" — the moment a new telescope captures its first image of the sky.
+Today marks the first release of starward, an educational astronomy calculation toolkit for Python. The name comes from the astronomical tradition of "first light" — the moment a new telescope captures its first image of the sky.
 
 <!-- truncate -->
 
-## Why astr0?
+## Why starward?
 
 Most astronomy software treats calculations as black boxes. You put in a date and location, and out comes an answer. But for students learning celestial mechanics, amateur astronomers wanting to understand the sky, or anyone curious about how these calculations actually work — that opacity is a barrier.
 
-astr0 is built differently. Every calculation can show its work with `--verbose` mode, revealing the step-by-step mathematics behind the results.
+starward is built differently. Every calculation can show its work with `--verbose` mode, revealing the step-by-step mathematics behind the results.
 
 ## What's in v0.1.0
 
 ### Time Module
 
-The foundation of any astronomical calculation is time. astr0's time module handles:
+The foundation of any astronomical calculation is time. starward's time module handles:
 
 - Julian Date conversions (the astronomer's universal time system)
 - Modified Julian Date (MJD)
@@ -27,7 +27,7 @@ The foundation of any astronomical calculation is time. astr0's time module hand
 - Local Sidereal Time (LST)
 
 ```bash
-astr0 time jd --verbose
+starward time jd --verbose
 ```
 
 ### Coordinates Module
@@ -49,14 +49,14 @@ Parse and format angles in standard astronomical notation:
 ## Getting Started
 
 ```bash
-pip install astr0
+pip install starward
 ```
 
 Then try:
 
 ```bash
-astr0 time now
-astr0 coords parse "12h 30m 45s, +45° 15' 30\""
+starward time now
+starward coords parse "12h 30m 45s, +45° 15' 30\""
 ```
 
 ## What's Next

@@ -23,13 +23,13 @@ Planetary position and visibility calculations.
 
 ## Commands
 
-### `astr0 planets position <planet>`
+### `starward planets position <planet>`
 
 Position of a specific planet.
 
 ```bash
-astr0 planets position mars
-astr0 planets position jupiter --jd 2451545.0
+starward planets position mars
+starward planets position jupiter --jd 2451545.0
 ```
 
 Output includes:
@@ -39,64 +39,64 @@ Output includes:
 - Elongation from Sun
 - Phase/illumination
 
-### `astr0 planets all`
+### `starward planets all`
 
 Summary of all planetary positions.
 
 ```bash
-astr0 planets all
+starward planets all
 ```
 
-### `astr0 planets rise <planet>`
+### `starward planets rise <planet>`
 
 Planet rise time.
 
 ```bash
-astr0 planets rise jupiter --lat 40.7 --lon -74.0
-astr0 planets rise mars --observer home
+starward planets rise jupiter --lat 40.7 --lon -74.0
+starward planets rise mars --observer home
 ```
 
-### `astr0 planets set <planet>`
+### `starward planets set <planet>`
 
 Planet set time.
 
 ```bash
-astr0 planets set saturn --lat 40.7 --lon -74.0
+starward planets set saturn --lat 40.7 --lon -74.0
 ```
 
-### `astr0 planets transit <planet>`
+### `starward planets transit <planet>`
 
 Meridian transit time (when planet is highest).
 
 ```bash
-astr0 planets transit jupiter --lat 40.7 --lon -74.0
+starward planets transit jupiter --lat 40.7 --lon -74.0
 ```
 
-### `astr0 planets altitude <planet>`
+### `starward planets altitude <planet>`
 
 Current altitude of a planet.
 
 ```bash
-astr0 planets altitude mars --lat 40.7 --lon -74.0
+starward planets altitude mars --lat 40.7 --lon -74.0
 ```
 
 ## Examples
 
 ```bash
 # Quick overview using alias
-astr0 p all
+starward p all
 
 # Mars position with verbose calculation
-astr0 planets position mars --verbose
+starward planets position mars --verbose
 
 # JSON for scripting
-astr0 planets position jupiter --json | jq '.magnitude'
+starward planets position jupiter --json | jq '.magnitude'
 
 # Best time to observe Saturn
-astr0 planets transit saturn --lat 34.05 --lon -118.25
+starward planets transit saturn --lat 34.05 --lon -118.25
 
 # Check if Jupiter is up
-astr0 planets altitude jupiter --lat 40.7 --lon -74.0
+starward planets altitude jupiter --lat 40.7 --lon -74.0
 ```
 
 ## Understanding the Output
@@ -120,9 +120,9 @@ Apparent brightness (lower = brighter):
 ## Python API
 
 ```python
-from astr0 import Planet, planet_position, all_planet_positions
-from astr0.core.planets import planet_rise, planet_altitude
-from astr0.core.observer import Observer
+from starward import Planet, planet_position, all_planet_positions
+from starward.core.planets import planet_rise, planet_altitude
+from starward.core.observer import Observer
 
 # Single planet
 mars = planet_position(Planet.MARS)

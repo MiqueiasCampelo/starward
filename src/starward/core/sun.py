@@ -11,12 +11,12 @@ import math
 from dataclasses import dataclass
 from typing import Optional, Tuple
 
-from astr0.core.angles import Angle
-from astr0.core.time import JulianDate, jd_now
-from astr0.core.coords import ICRSCoord
-from astr0.core.observer import Observer
-from astr0.core.constants import CONSTANTS
-from astr0.verbose import VerboseContext, step
+from starward.core.angles import Angle
+from starward.core.time import JulianDate, jd_now
+from starward.core.coords import ICRSCoord
+from starward.core.observer import Observer
+from starward.core.constants import CONSTANTS
+from starward.verbose import VerboseContext, step
 
 
 @dataclass(frozen=True)

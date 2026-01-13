@@ -7,13 +7,13 @@ sidebar_position: 9
 
 # Astronomical Constants
 
-Astronomy relies on precisely measured physical constants and defined reference values. This guide explains the constants available in astr0 and their significance.
+Astronomy relies on precisely measured physical constants and defined reference values. This guide explains the constants available in starward and their significance.
 
 ---
 
 ## Why Constants Matter
 
-Every astronomical calculation depends on physical constants and conventional reference values. Using outdated or inconsistent constants leads to systematic errors. astr0 uses the most recent authoritative values from:
+Every astronomical calculation depends on physical constants and conventional reference values. Using outdated or inconsistent constants leads to systematic errors. starward uses the most recent authoritative values from:
 
 - **IAU** — International Astronomical Union (astronomical definitions)
 - **CODATA** — Committee on Data for Science and Technology (physical constants)
@@ -27,19 +27,19 @@ Every astronomical calculation depends on physical constants and conventional re
 ### List All Constants
 
 ```bash
-astr0 constants list
+starward constants list
 ```
 
 ### Search for Constants
 
 ```bash
-astr0 constants search solar
+starward constants search solar
 ```
 
 ### Show a Specific Constant
 
 ```bash
-astr0 constants show c
+starward constants show c
 ```
 
 ---
@@ -295,7 +295,7 @@ $$\theta = 2 \times \arctan\left(\frac{R_☉}{AU}\right) \approx \frac{2 \times 
 ## Python API
 
 ```python
-from astr0.core.constants import AstronomicalConstants
+from starward.core.constants import AstronomicalConstants
 
 # Get the singleton
 const = AstronomicalConstants()

@@ -11,7 +11,7 @@ import re
 from dataclasses import dataclass
 from typing import Optional, Union
 
-from astr0.verbose import VerboseContext, step
+from starward.verbose import VerboseContext, step
 
 
 @dataclass(frozen=True)

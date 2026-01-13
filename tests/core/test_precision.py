@@ -12,7 +12,7 @@ from __future__ import annotations
 import pytest
 import os
 
-from astr0.core.precision import (
+from starward.core.precision import (
     PrecisionConfig,
     PrecisionLevel,
     get_precision,

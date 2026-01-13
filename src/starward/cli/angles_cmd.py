@@ -5,9 +5,9 @@ Angle-related CLI commands.
 import click
 from typing import Optional
 
-from astr0.core.angles import Angle, angular_separation, position_angle
-from astr0.core.coords import ICRSCoord
-from astr0.verbose import VerboseContext
+from starward.core.angles import Angle, angular_separation, position_angle
+from starward.core.coords import ICRSCoord
+from starward.verbose import VerboseContext
 
 
 @click.group(name='angles')
@@ -20,9 +20,9 @@ def angles_group():
     
     \b
     Examples:
-        astr0 angles sep "10h30m +30d" "10h35m +31d"
-        astr0 angles convert 45.5
-        astr0 angles pa "10h +30d" "11h +31d"
+        starward angles sep "10h30m +30d" "10h35m +31d"
+        starward angles convert 45.5
+        starward angles pa "10h +30d" "11h +31d"
     """
     pass
 
@@ -39,8 +39,8 @@ def sep(ctx, coord1: str, coord2: str):
     
     \b
     Examples:
-        astr0 angles sep "10h30m +30d" "10h35m +31d"
-        astr0 angles sep "Polaris" "Vega"  # Future: catalog lookup
+        starward angles sep "10h30m +30d" "10h35m +31d"
+        starward angles sep "Polaris" "Vega"  # Future: catalog lookup
     """
     verbose = ctx.obj.get('verbose', False)
     output_fmt = ctx.obj.get('output', 'plain')
@@ -105,7 +105,7 @@ def pa(ctx, coord1: str, coord2: str):
     
     \b
     Examples:
-        astr0 angles pa "10h +30d" "11h +31d"
+        starward angles pa "10h +30d" "11h +31d"
     """
     verbose = ctx.obj.get('verbose', False)
     output_fmt = ctx.obj.get('output', 'plain')
@@ -184,9 +184,9 @@ def convert(ctx, value: float, unit: str):
     
     \b
     Examples:
-        astr0 angles convert 45.5
-        astr0 angles convert 3.14159 --unit rad
-        astr0 angles convert 12.5 --unit hours
+        starward angles convert 45.5
+        starward angles convert 3.14159 --unit rad
+        starward angles convert 12.5 --unit hours
     """
     output_fmt = ctx.obj.get('output', 'plain')
     

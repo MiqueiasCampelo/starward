@@ -7,7 +7,7 @@ sidebar_position: 2
 
 # CLI Reference
 
-Complete reference for all astr0 command-line commands.
+Complete reference for all starward command-line commands.
 
 ---
 
@@ -27,19 +27,19 @@ These options apply to all commands and must appear **before** the subcommand:
 ⚠️ **Important**: Global options must come **before** the subcommand:
 ```bash
 # ✓ Correct
-astr0 --json time now
-astr0 --verbose sun position
-astr0 -p full time now
+starward --json time now
+starward --verbose sun position
+starward -p full time now
 
 # ✗ Wrong (won't work)
-astr0 time now --json
+starward time now --json
 ```
 
 **Example**:
 ```bash
-astr0 --verbose --output json time now
-astr0 --json sun rise --lat 40.7 --lon -74.0
-astr0 -p high angle sep "10h +30d" "11h +31d"
+starward --verbose --output json time now
+starward --json sun rise --lat 40.7 --lon -74.0
+starward -p high angle sep "10h +30d" "11h +31d"
 ```
 
 ---
@@ -58,19 +58,19 @@ Control the display precision of numerical output. **All internal calculations u
 
 ```bash
 # Compact: 0.26
-astr0 -p compact time now
+starward -p compact time now
 
 # Standard (default): 0.260077
-astr0 time now
+starward time now
 
 # Full precision: 0.260076993954923
-astr0 -p full time now
+starward -p full time now
 ```
 
 You can also set precision via environment variable:
 ```bash
 export ASTR0_PRECISION=high
-astr0 time now  # Uses high precision
+starward time now  # Uses high precision
 ```
 
 ---
@@ -86,7 +86,7 @@ For faster typing, commands have short aliases:
 | `angles` | `a`, `angle` |
 | `constants` | `const` |
 
-**Example**: `astr0 t now` is equivalent to `astr0 time now`
+**Example**: `starward t now` is equivalent to `starward time now`
 
 ---
 
@@ -99,7 +99,7 @@ Time conversions and astronomical time calculations.
 Display current time in all astronomical formats.
 
 ```bash
-astr0 time now
+starward time now
 ```
 
 **Output includes**:
@@ -116,7 +116,7 @@ astr0 time now
 Convert Julian Date or MJD to calendar date.
 
 ```bash
-astr0 time convert VALUE [--from FORMAT]
+starward time convert VALUE [--from FORMAT]
 ```
 
 **Arguments**:
@@ -131,8 +131,8 @@ astr0 time convert VALUE [--from FORMAT]
 
 **Examples**:
 ```bash
-astr0 time convert 2460000.5
-astr0 time convert 60000 --from mjd
+starward time convert 2460000.5
+starward time convert 60000 --from mjd
 ```
 
 ---
@@ -142,7 +142,7 @@ astr0 time convert 60000 --from mjd
 Convert calendar date to Julian Date.
 
 ```bash
-astr0 time jd YEAR MONTH DAY [HOUR] [MINUTE] [SECOND]
+starward time jd YEAR MONTH DAY [HOUR] [MINUTE] [SECOND]
 ```
 
 **Arguments**:
@@ -157,7 +157,7 @@ astr0 time jd YEAR MONTH DAY [HOUR] [MINUTE] [SECOND]
 
 **Example**:
 ```bash
-astr0 time jd 2024 7 4 12 0 0
+starward time jd 2024 7 4 12 0 0
 ```
 
 ---
@@ -167,7 +167,7 @@ astr0 time jd 2024 7 4 12 0 0
 Calculate Local Sidereal Time for a longitude.
 
 ```bash
-astr0 time lst LONGITUDE [--jd JD]
+starward time lst LONGITUDE [--jd JD]
 ```
 
 **Arguments**:
@@ -182,9 +182,9 @@ astr0 time lst LONGITUDE [--jd JD]
 
 **Examples**:
 ```bash
-astr0 time lst -- -118.25          # Los Angeles (note: -- before negative)
-astr0 time lst 0                   # Greenwich
-astr0 time lst 139.69 --jd 2460000.5  # Tokyo at specific JD
+starward time lst -- -118.25          # Los Angeles (note: -- before negative)
+starward time lst 0                   # Greenwich
+starward time lst 139.69 --jd 2460000.5  # Tokyo at specific JD
 ```
 
 **Note**: Use `--` before negative longitudes to prevent them being interpreted as flags.
@@ -200,7 +200,7 @@ Coordinate parsing and transformations.
 Transform coordinates between systems.
 
 ```bash
-astr0 coords transform COORDINATES --to SYSTEM [options]
+starward coords transform COORDINATES --to SYSTEM [options]
 ```
 
 **Arguments**:
@@ -228,13 +228,13 @@ astr0 coords transform COORDINATES --to SYSTEM [options]
 **Examples**:
 ```bash
 # ICRS to Galactic
-astr0 coords transform "12h30m +45d" --to galactic
+starward coords transform "12h30m +45d" --to galactic
 
 # ICRS to Horizontal (requires location)
-astr0 coords transform "12h30m +45d" --to altaz --lat 34.05 --lon -118.25
+starward coords transform "12h30m +45d" --to altaz --lat 34.05 --lon -118.25
 
 # Galactic to ICRS
-astr0 coords transform "l=0 b=0" --from galactic --to icrs
+starward coords transform "l=0 b=0" --from galactic --to icrs
 ```
 
 ---
@@ -244,7 +244,7 @@ astr0 coords transform "l=0 b=0" --from galactic --to icrs
 Parse and display coordinate components.
 
 ```bash
-astr0 coords parse COORDINATES
+starward coords parse COORDINATES
 ```
 
 **Arguments**:
@@ -254,7 +254,7 @@ astr0 coords parse COORDINATES
 
 **Example**:
 ```bash
-astr0 coords parse "12h30m45.2s -45d30m15s"
+starward coords parse "12h30m45.2s -45d30m15s"
 ```
 
 **Output**:
@@ -275,7 +275,7 @@ Angular measurements and calculations.
 Calculate angular separation between two points.
 
 ```bash
-astr0 angles sep COORD1 COORD2
+starward angles sep COORD1 COORD2
 ```
 
 **Arguments**:
@@ -286,7 +286,7 @@ astr0 angles sep COORD1 COORD2
 
 **Example**:
 ```bash
-astr0 angles sep "10h30m +30d" "10h35m +31d"
+starward angles sep "10h30m +30d" "10h35m +31d"
 ```
 
 **Output**:
@@ -300,7 +300,7 @@ Angular Separation:
 
 **With verbose mode**:
 ```bash
-astr0 --verbose angles sep "10h +30d" "11h +31d"
+starward --verbose angles sep "10h +30d" "11h +31d"
 ```
 Shows the complete Vincenty formula calculation.
 
@@ -311,7 +311,7 @@ Shows the complete Vincenty formula calculation.
 Calculate position angle from point 1 to point 2.
 
 ```bash
-astr0 angles pa COORD1 COORD2
+starward angles pa COORD1 COORD2
 ```
 
 **Arguments**:
@@ -322,7 +322,7 @@ astr0 angles pa COORD1 COORD2
 
 **Example**:
 ```bash
-astr0 angles pa "10h30m +30d" "10h35m +31d"
+starward angles pa "10h30m +30d" "10h35m +31d"
 ```
 
 **Output**:
@@ -339,7 +339,7 @@ Position angle is measured from North (0°) through East (90°).
 Convert an angle between units.
 
 ```bash
-astr0 angles convert VALUE [--from UNIT]
+starward angles convert VALUE [--from UNIT]
 ```
 
 **Arguments**:
@@ -354,9 +354,9 @@ astr0 angles convert VALUE [--from UNIT]
 
 **Examples**:
 ```bash
-astr0 angles convert 45.5 --from deg
-astr0 angles convert 3.14159 --from rad
-astr0 angles convert 12.5 --from hours
+starward angles convert 45.5 --from deg
+starward angles convert 3.14159 --from rad
+starward angles convert 12.5 --from hours
 ```
 
 ---
@@ -370,7 +370,7 @@ Access to authoritative astronomical constants.
 List all available constants.
 
 ```bash
-astr0 constants list
+starward constants list
 ```
 
 Displays all constants with their values, units, and references.
@@ -382,7 +382,7 @@ Displays all constants with their values, units, and references.
 Search for constants by name.
 
 ```bash
-astr0 constants search QUERY
+starward constants search QUERY
 ```
 
 **Arguments**:
@@ -392,9 +392,9 @@ astr0 constants search QUERY
 
 **Examples**:
 ```bash
-astr0 constants search solar
-astr0 constants search earth
-astr0 constants search julian
+starward constants search solar
+starward constants search earth
+starward constants search julian
 ```
 
 ---
@@ -404,7 +404,7 @@ astr0 constants search julian
 Display a specific constant.
 
 ```bash
-astr0 constants show NAME
+starward constants show NAME
 ```
 
 **Arguments**:
@@ -434,17 +434,17 @@ astr0 constants show NAME
 
 **Example**:
 ```bash
-astr0 constants show c
+starward constants show c
 ```
 
 ---
 
 ## about
 
-Display information about astr0.
+Display information about starward.
 
 ```bash
-astr0 about
+starward about
 ```
 
 Shows the ASCII banner, version, license, and motto.
@@ -458,7 +458,7 @@ Shows the ASCII banner, version, license, and motto.
 Human-readable formatted output with Unicode characters.
 
 ```bash
-astr0 time now
+starward time now
 ```
 
 ### JSON
@@ -466,7 +466,7 @@ astr0 time now
 Machine-readable JSON output.
 
 ```bash
-astr0 --output json time now
+starward --output json time now
 ```
 
 ```json
@@ -498,7 +498,7 @@ JSON output is useful for:
 
 ## Environment Variables
 
-Currently, astr0 does not use environment variables. Future versions may support:
+Currently, starward does not use environment variables. Future versions may support:
 - `ASTR0_DEFAULT_FORMAT` — Default output format
 - `ASTR0_OBSERVER_LAT` / `ASTR0_OBSERVER_LON` — Default observer location
 
@@ -511,25 +511,25 @@ Currently, astr0 does not use environment variables. Future versions may support
 Use `--` to separate options from arguments with negative values:
 
 ```bash
-astr0 time lst -- -118.25
+starward time lst -- -118.25
 ```
 
 ### Combining Options
 
 ```bash
-astr0 -v -o json coords transform "12h +45d" --to galactic
+starward -v -o json coords transform "12h +45d" --to galactic
 ```
 
 ### Chaining with Other Tools
 
 ```bash
 # Get just the Julian Date
-astr0 --output json time now | jq '.julian_date'
+starward --output json time now | jq '.julian_date'
 
 # Store result in a variable
-JD=$(astr0 --output json time now | jq -r '.julian_date')
+JD=$(starward --output json time now | jq -r '.julian_date')
 ```
 
 ---
 
-*Next: [Python API](/docs/python-api/reference) — Using astr0 as a library*
+*Next: [Python API](/docs/python-api/reference) — Using starward as a library*

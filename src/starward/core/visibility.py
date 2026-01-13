@@ -11,14 +11,14 @@ import math
 from dataclasses import dataclass
 from typing import Optional, List, Tuple
 
-from astr0.core.angles import Angle, angular_separation
-from astr0.core.time import JulianDate, jd_now
-from astr0.core.coords import ICRSCoord
-from astr0.core.observer import Observer
-from astr0.core.sun import solar_altitude, sun_position
-from astr0.core.moon import moon_position, moon_altitude, lunar_distance_to_sun
-from astr0.core.constants import CONSTANTS
-from astr0.verbose import VerboseContext, step
+from starward.core.angles import Angle, angular_separation
+from starward.core.time import JulianDate, jd_now
+from starward.core.coords import ICRSCoord
+from starward.core.observer import Observer
+from starward.core.sun import solar_altitude, sun_position
+from starward.core.moon import moon_position, moon_altitude, lunar_distance_to_sun
+from starward.core.constants import CONSTANTS
+from starward.verbose import VerboseContext, step
 
 
 @dataclass(frozen=True)

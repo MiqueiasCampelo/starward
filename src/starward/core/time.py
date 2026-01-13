@@ -11,8 +11,8 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Optional, Union
 
-from astr0.core.constants import CONSTANTS
-from astr0.verbose import VerboseContext, step
+from starward.core.constants import CONSTANTS
+from starward.verbose import VerboseContext, step
 
 
 @dataclass(frozen=True)
