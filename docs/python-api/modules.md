@@ -240,3 +240,264 @@ vis.moon_separation
 # Airmass
 X = airmass(altitude)
 ```
+
+---
+
+## starward.core.messier
+
+Messier deep-sky catalog (110 objects).
+
+```python
+from starward.core.messier import (
+    MESSIER,           # Singleton catalog instance
+    MessierCatalog,    # Catalog class
+    messier_coords,    # Get coordinates
+    messier_altitude,  # Current altitude
+    messier_transit_altitude,  # Transit altitude
+)
+
+# Get an object
+m31 = MESSIER.get(31)
+m31.number          # 31
+m31.name            # "Andromeda Galaxy"
+m31.object_type     # "galaxy"
+m31.constellation   # "And"
+m31.ra_hours        # Right ascension in hours
+m31.dec_degrees     # Declination in degrees
+m31.magnitude       # Visual magnitude
+m31.ngc             # NGC number (224)
+
+# List all objects
+all_objects = MESSIER.list_all()
+
+# Search
+results = MESSIER.search("orion")
+results = MESSIER.search("galaxy", limit=10)
+
+# Filter
+galaxies = MESSIER.filter_by_type("galaxy")
+sgr_objects = MESSIER.filter_by_constellation("Sgr")
+bright = MESSIER.filter_by_magnitude(6.0)
+
+# Coordinates
+coords = messier_coords(31)  # Returns ICRSCoord
+
+# Visibility
+alt = messier_altitude(31, observer, jd)
+transit = messier_transit_altitude(31, observer)
+```
+
+## starward.core.ngc
+
+NGC deep-sky catalog (~7,840 objects).
+
+```python
+from starward.core.ngc import (
+    NGC,               # Singleton catalog instance
+    NGCCatalog,        # Catalog class
+    ngc_coords,        # Get coordinates
+    ngc_altitude,      # Current altitude
+    ngc_transit_altitude,  # Transit altitude
+)
+
+# Get an object
+ngc7000 = NGC.get(7000)
+ngc7000.number          # 7000
+ngc7000.name            # "North America Nebula"
+ngc7000.object_type     # "emission_nebula"
+ngc7000.constellation   # "Cyg"
+ngc7000.magnitude       # Visual magnitude
+ngc7000.messier_number  # Messier number if applicable
+
+# List and filter
+all_objects = NGC.list_all()
+nebulae = NGC.filter_by_type("planetary_nebula")
+virgo = NGC.filter_by_constellation("Vir")
+bright = NGC.filter_by_magnitude(10.0)
+
+# Search
+results = NGC.search("veil nebula")
+
+# Cross-reference
+m31_ngc = NGC.get_by_messier(31)  # Returns NGC 224
+
+# Statistics
+stats = NGC.stats()
+```
+
+## starward.core.ic
+
+IC (Index Catalogue) deep-sky catalog (~5,386 objects).
+
+```python
+from starward.core.ic import (
+    IC,                # Singleton catalog instance
+    ICCatalog,         # Catalog class
+    ic_coords,         # Get coordinates
+    ic_altitude,       # Current altitude
+    ic_transit_altitude,  # Transit altitude
+)
+
+# Get an object
+ic434 = IC.get(434)
+ic434.name            # "Horsehead Nebula"
+ic434.object_type     # "dark_nebula"
+
+# Same interface as NGC
+nebulae = IC.filter_by_type("emission_nebula")
+results = IC.search("horsehead")
+stats = IC.stats()
+```
+
+## starward.core.caldwell
+
+Caldwell deep-sky catalog (109 objects).
+
+```python
+from starward.core.caldwell import (
+    Caldwell,          # Singleton catalog instance
+    CaldwellCatalog,   # Catalog class
+    caldwell_coords,   # Get coordinates
+    caldwell_altitude, # Current altitude
+    caldwell_transit_altitude,  # Transit altitude
+)
+
+# Get an object
+c14 = Caldwell.get(14)
+c14.name              # "Double Cluster"
+c14.ngc_number        # 869
+
+# Same interface as other catalogs
+galaxies = Caldwell.filter_by_type("galaxy")
+results = Caldwell.search("sculptor")
+stats = Caldwell.stats()
+```
+
+## starward.core.hipparcos
+
+Hipparcos bright star catalog.
+
+```python
+from starward.core.hipparcos import (
+    Hipparcos,         # Singleton catalog instance
+    HipparcosCatalog,  # Catalog class
+    star_coords,       # Get coordinates
+    star_altitude,     # Current altitude
+    star_transit_altitude,  # Transit altitude
+)
+
+# Get a star
+sirius = Hipparcos.get(32349)
+sirius.hip_number       # 32349
+sirius.name             # "Sirius"
+sirius.bayer            # "Alpha Canis Majoris"
+sirius.constellation    # "CMa"
+sirius.magnitude        # -1.46
+sirius.spectral_type    # "A1V"
+sirius.spectral_class   # "A"
+sirius.bv_color         # B-V color index
+sirius.parallax_mas     # Parallax in milliarcseconds
+
+# Search
+vega = Hipparcos.get_by_name("Vega")
+betel = Hipparcos.get_by_bayer("Alpha Orionis")
+results = Hipparcos.search("alpha")
+
+# Filter
+orion = Hipparcos.filter_by_constellation("Ori")
+bright = Hipparcos.filter_by_magnitude(2.0)
+red_giants = Hipparcos.filter_by_spectral_class("K")
+
+# Statistics
+stats = Hipparcos.stats()
+```
+
+## starward.core.finder
+
+Cross-catalog object search.
+
+```python
+from starward.core.finder import (
+    find_by_name,
+    find_galaxies,
+    find_nebulae,
+    find_clusters,
+    find_stars,
+    find_by_type,
+    find_in_constellation,
+    find_bright,
+)
+
+# Search by name across all catalogs
+results = find_by_name("orion")
+
+# Find specific object types
+galaxies = find_galaxies(max_magnitude=10.0, constellation="Vir")
+nebulae = find_nebulae(max_magnitude=8.0)
+clusters = find_clusters(constellation="Per")
+
+# Find by type
+planetary = find_by_type("planetary_nebula", max_magnitude=12.0)
+
+# Find all objects in a constellation
+orion_objects = find_in_constellation("Ori")
+
+# Find bright objects (naked eye / binoculars)
+bright = find_bright(max_magnitude=6.0)
+```
+
+## starward.core.lists
+
+Custom observation list management.
+
+```python
+from starward.core.lists import (
+    create_list,
+    delete_list,
+    list_all_lists,
+    get_list,
+    add_to_list,
+    remove_from_list,
+    update_notes,
+    clear_list,
+    rename_list,
+    export_list,
+    resolve_object,
+)
+
+# Create a list
+create_list("Tonight", description="Objects for tonight")
+
+# Add objects (various formats)
+add_to_list("Tonight", "M31", notes="Check dust lanes")
+add_to_list("Tonight", "NGC 7000")
+add_to_list("Tonight", "IC434")
+add_to_list("Tonight", "C14")
+add_to_list("Tonight", "HIP32349")
+
+# Get list contents
+items = get_list("Tonight")
+for item in items:
+    print(f"{item.designation}: {item.name} - {item.notes}")
+
+# Update notes
+update_notes("Tonight", "M31", "Observed at 21:30")
+
+# Remove an object
+remove_from_list("Tonight", "IC434")
+
+# Export
+csv_data = export_list("Tonight", format="csv")
+json_data = export_list("Tonight", format="json")
+
+# List management
+all_lists = list_all_lists()
+rename_list("Tonight", "2024-01-15 Session")
+clear_list("Tonight")  # Remove all items
+delete_list("Tonight")  # Delete the list
+
+# Resolve object designation
+obj = resolve_object("M31")  # Returns MessierObject
+obj = resolve_object("NGC7000")  # Returns NGCObject
+obj = resolve_object("HIP32349")  # Returns HIPStar
+```

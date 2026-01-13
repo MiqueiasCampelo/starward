@@ -486,6 +486,306 @@ JSON output is useful for:
 
 ---
 
+## messier — Messier Catalog
+
+Browse the 110 Messier deep-sky objects.
+
+### messier list
+
+```bash
+starward messier list [--type TYPE] [--constellation CODE] [--magnitude MAG]
+```
+
+| Option | Description |
+|--------|-------------|
+| `--type` | Filter by type: `galaxy`, `globular_cluster`, `open_cluster`, `planetary_nebula`, `emission_nebula`, `reflection_nebula`, `supernova_remnant` |
+| `--constellation` | Filter by constellation (3-letter code) |
+| `--magnitude` | Show objects brighter than magnitude |
+
+### messier show
+
+```bash
+starward messier show NUMBER
+```
+
+### messier search
+
+```bash
+starward messier search QUERY [--limit N]
+```
+
+### messier altitude / rise / transit / set
+
+```bash
+starward messier altitude NUMBER [--lat FLOAT] [--lon FLOAT] [--observer NAME] [--jd FLOAT]
+starward messier rise NUMBER [OPTIONS]
+starward messier transit NUMBER [OPTIONS]
+starward messier set NUMBER [OPTIONS]
+```
+
+---
+
+## ngc — NGC Catalog
+
+Browse approximately 7,840 NGC deep-sky objects.
+
+### ngc list
+
+```bash
+starward ngc list [--type TYPE] [--constellation CODE] [--magnitude MAG] [--limit N]
+```
+
+### ngc show
+
+```bash
+starward ngc show NUMBER
+```
+
+### ngc search
+
+```bash
+starward ngc search QUERY [--limit N]
+```
+
+### ngc stats
+
+```bash
+starward ngc stats
+```
+
+### ngc altitude / rise / transit / set
+
+```bash
+starward ngc altitude NUMBER [--lat FLOAT] [--lon FLOAT] [--observer NAME] [--jd FLOAT]
+```
+
+---
+
+## ic — IC Catalog
+
+Browse approximately 5,386 IC (Index Catalogue) objects.
+
+### ic list / show / search / stats
+
+Same interface as NGC commands.
+
+```bash
+starward ic list [--type TYPE] [--constellation CODE] [--magnitude MAG]
+starward ic show NUMBER
+starward ic search QUERY
+starward ic stats
+```
+
+### ic altitude / rise / transit / set
+
+```bash
+starward ic altitude NUMBER [--lat FLOAT] [--lon FLOAT] [--observer NAME] [--jd FLOAT]
+```
+
+---
+
+## caldwell — Caldwell Catalog
+
+Browse the 109 Caldwell deep-sky objects.
+
+### caldwell list / show / search / stats
+
+Same interface as NGC commands.
+
+```bash
+starward caldwell list [--type TYPE] [--constellation CODE] [--magnitude MAG]
+starward caldwell show NUMBER
+starward caldwell search QUERY
+starward caldwell stats
+```
+
+### caldwell altitude / rise / transit / set
+
+```bash
+starward caldwell altitude NUMBER [--lat FLOAT] [--lon FLOAT] [--observer NAME] [--jd FLOAT]
+```
+
+---
+
+## stars — Hipparcos Star Catalog
+
+Browse the Hipparcos bright star catalog.
+
+### stars list
+
+```bash
+starward stars list [--constellation CODE] [--magnitude MAG] [--spectral CLASS] [--limit N]
+```
+
+| Option | Description |
+|--------|-------------|
+| `--constellation` | Filter by constellation |
+| `--magnitude` | Show stars brighter than magnitude |
+| `--spectral` | Filter by spectral class: O, B, A, F, G, K, M |
+| `--limit` | Maximum results |
+
+### stars show
+
+```bash
+starward stars show HIP_NUMBER
+```
+
+### stars search
+
+```bash
+starward stars search QUERY [--limit N]
+```
+
+Search by name, Bayer designation, spectral type, or constellation.
+
+### stars stats
+
+```bash
+starward stars stats
+```
+
+### stars altitude / rise / transit / set
+
+```bash
+starward stars altitude HIP_NUMBER [--lat FLOAT] [--lon FLOAT] [--observer NAME] [--jd FLOAT]
+```
+
+---
+
+## find — Cross-Catalog Search
+
+Search for objects across all catalogs simultaneously.
+
+### find search
+
+```bash
+starward find search QUERY [--catalog LIST] [--limit N]
+```
+
+| Option | Description |
+|--------|-------------|
+| `--catalog` | Catalogs to search: `ngc`, `ic`, `caldwell`, `hipparcos`, or `all` |
+| `--limit` | Maximum results |
+
+### find galaxies / nebulae / clusters / stars
+
+```bash
+starward find galaxies [--mag FLOAT] [--constellation CODE] [--catalog LIST] [--limit N]
+starward find nebulae [OPTIONS]
+starward find clusters [OPTIONS]
+starward find stars [--spectral CLASS] [OPTIONS]
+```
+
+### find type
+
+```bash
+starward find type TYPE [--mag FLOAT] [--constellation CODE] [--catalog LIST] [--limit N]
+```
+
+Types: `galaxy`, `globular_cluster`, `open_cluster`, `planetary_nebula`, `emission_nebula`, `reflection_nebula`, `dark_nebula`, `supernova_remnant`
+
+### find in
+
+```bash
+starward find in CONSTELLATION [--mag FLOAT] [--catalog LIST] [--limit N]
+```
+
+Find all objects in a constellation.
+
+### find bright
+
+```bash
+starward find bright [--mag FLOAT] [--constellation CODE] [--catalog LIST]
+```
+
+Find bright objects suitable for naked-eye or binocular observation (default mag ≤ 6.0).
+
+---
+
+## list — Observation Lists
+
+Create and manage custom observation lists.
+
+### list create
+
+```bash
+starward list create NAME [-d DESCRIPTION]
+```
+
+### list ls
+
+```bash
+starward list ls
+```
+
+List all observation lists.
+
+### list add
+
+```bash
+starward list add NAME OBJECT [-n NOTES]
+```
+
+Add an object to a list. Object formats:
+- Messier: `M31`, `M 31`
+- NGC: `NGC7000`, `NGC 7000`
+- IC: `IC434`, `IC 434`
+- Caldwell: `C14`, `Caldwell 14`
+- Hipparcos: `HIP32349`
+
+### list show
+
+```bash
+starward list show NAME
+```
+
+### list remove
+
+```bash
+starward list remove NAME OBJECT
+```
+
+### list note
+
+```bash
+starward list note NAME OBJECT NOTE
+```
+
+Update notes for an object (use "" to clear).
+
+### list clear
+
+```bash
+starward list clear NAME
+```
+
+Remove all objects from a list.
+
+### list rename
+
+```bash
+starward list rename OLD_NAME NEW_NAME
+```
+
+### list delete
+
+```bash
+starward list delete NAME
+```
+
+### list export
+
+```bash
+starward list export NAME [-f FORMAT] [-o FILE]
+```
+
+| Option | Description |
+|--------|-------------|
+| `-f`, `--format` | Export format: `csv` (default) or `json` |
+| `-o`, `--output` | Output file (default: stdout) |
+
+---
+
 ## Exit Codes
 
 | Code | Meaning |
