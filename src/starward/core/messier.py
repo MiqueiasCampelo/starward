@@ -3,6 +3,34 @@ Messier catalog operations.
 
 Provides access to all 110 Messier objects with coordinates, metadata,
 and integration with visibility calculations.
+
+Historical Background:
+    Charles Messier (1730-1817) was a French astronomer primarily interested
+    in discovering comets. His catalog was created to identify "fuzzy objects"
+    that could be confused with comets. Ironically, this list of "nuisance
+    objects" became the most famous catalog of celestial showpieces.
+
+    The catalog was compiled between 1758 and 1782, containing objects visible
+    from Paris (latitude ~49°N). It includes galaxies, nebulae, and star clusters
+    ranging from naked-eye objects like M45 (Pleiades) to challenging targets
+    like M76 (Little Dumbbell Nebula).
+
+Catalog Contents (110 objects):
+    - Galaxies: 40 (including M31 Andromeda, M51 Whirlpool, M104 Sombrero)
+    - Open Clusters: 26 (including M45 Pleiades, M44 Beehive)
+    - Globular Clusters: 29 (including M13 Great Hercules Cluster)
+    - Nebulae: 11 (including M42 Orion Nebula, M57 Ring Nebula)
+    - Other: 4 (asterisms, star clouds)
+
+Messier Marathons:
+    In late March, all 110 objects can theoretically be observed in a single
+    night from mid-northern latitudes, known as a "Messier Marathon."
+
+Example:
+    >>> from starward.core.messier import MESSIER, messier_coords
+    >>> m31 = MESSIER.get(31)
+    >>> print(f"{m31.name}: {m31.object_type}")
+    Andromeda Galaxy: galaxy
 """
 
 from __future__ import annotations
