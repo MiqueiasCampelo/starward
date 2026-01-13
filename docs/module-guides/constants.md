@@ -354,4 +354,4 @@ for c in const.search("solar"):
 
 ---
 
-*Next: [Verbose Mode](/guides/verbose) — The "show your work" system*
+*Next: [Verbose Mode](/docs/guides/verbose) — The "show your work" system*

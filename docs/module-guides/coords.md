@@ -328,4 +328,4 @@ icrs = gal.to_icrs()
 
 ---
 
-*Next: [Angular Calculations](/module-guides/angles) — Measure distances on the sky*
+*Next: [Angular Calculations](/docs/module-guides/angles) — Measure distances on the sky*

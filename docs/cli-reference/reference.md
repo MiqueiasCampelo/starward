@@ -532,4 +532,4 @@ JD=$(astr0 --output json time now | jq -r '.julian_date')
 
 ---
 
-*Next: [Python API](/python-api/reference) — Using astr0 as a library*
+*Next: [Python API](/docs/python-api/reference) — Using astr0 as a library*

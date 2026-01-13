@@ -298,4 +298,4 @@ lst = jd.lst(longitude=-118.25)
 
 ---
 
-*Next: [Coordinate Systems](/module-guides/coords) — Navigate the celestial sphere*
+*Next: [Coordinate Systems](/docs/module-guides/coords) — Navigate the celestial sphere*

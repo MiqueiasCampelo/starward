@@ -335,7 +335,7 @@ astr0 vis report RA DEC --lat LAT --lon LON [--jd JD] [--json]
 
 ## See Also
 
-- [Sun Module](/module-guides/sun) - Twilight and darkness
-- [Moon Module](/module-guides/moon) - Lunar interference
-- [Observer Module](/module-guides/observer) - Location management
-- [Coords Module](/module-guides/coords) - Coordinate systems
+- [Sun Module](/docs/module-guides/sun) - Twilight and darkness
+- [Moon Module](/docs/module-guides/moon) - Lunar interference
+- [Observer Module](/docs/module-guides/observer) - Location management
+- [Coords Module](/docs/module-guides/coords) - Coordinate systems

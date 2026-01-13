@@ -342,4 +342,4 @@ print(f"PA: {pa.degrees}°")
 
 ---
 
-*Next: [Astronomical Constants](/module-guides/constants) — The numbers behind it all*
+*Next: [Astronomical Constants](/docs/module-guides/constants) — The numbers behind it all*

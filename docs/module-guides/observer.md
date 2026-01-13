@@ -310,6 +310,6 @@ astr0 observer remove NAME
 
 ## See Also
 
-- [Sun Module](/module-guides/sun) - Uses observer for rise/set
-- [Moon Module](/module-guides/moon) - Uses observer for rise/set
-- [Visibility Module](/module-guides/visibility) - Uses observer for all calculations
+- [Sun Module](/docs/module-guides/sun) - Uses observer for rise/set
+- [Moon Module](/docs/module-guides/moon) - Uses observer for rise/set
+- [Visibility Module](/docs/module-guides/visibility) - Uses observer for all calculations

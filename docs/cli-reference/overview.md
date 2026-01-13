@@ -66,7 +66,7 @@ astr0 planets all --json | jq '.planets.jupiter'
 
 ## Detailed References
 
-- [Time Commands](/cli-reference/time)
-- [Coordinate Commands](/cli-reference/coords)
-- [Sun & Moon](/cli-reference/sun-moon)
-- [Planets](/cli-reference/planets)
+- [Time Commands](/docs/cli-reference/time)
+- [Coordinate Commands](/docs/cli-reference/coords)
+- [Sun & Moon](/docs/cli-reference/sun-moon)
+- [Planets](/docs/cli-reference/planets)

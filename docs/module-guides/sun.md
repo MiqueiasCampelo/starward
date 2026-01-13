@@ -217,6 +217,6 @@ For higher precision requirements, consider the VSOP87 theory (not yet implement
 
 ## See Also
 
-- [Moon Module](/module-guides/moon) - Lunar calculations
-- [Visibility Module](/module-guides/visibility) - Observation planning
-- [Observer Module](/module-guides/observer) - Location management
+- [Moon Module](/docs/module-guides/moon) - Lunar calculations
+- [Visibility Module](/docs/module-guides/visibility) - Observation planning
+- [Observer Module](/docs/module-guides/observer) - Location management

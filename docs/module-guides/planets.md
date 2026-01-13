@@ -243,7 +243,7 @@ The algorithms provide accuracy suitable for observation planning. For high-prec
 
 ## See Also
 
-- [Sun Module](/module-guides/sun) - Solar position and phenomena
-- [Moon Module](/module-guides/moon) - Lunar calculations
-- [Visibility Module](/module-guides/visibility) - Observation planning
-- [CLI Planets Reference](/cli-reference/planets) - Full CLI command reference
+- [Sun Module](/docs/module-guides/sun) - Solar position and phenomena
+- [Moon Module](/docs/module-guides/moon) - Lunar calculations
+- [Visibility Module](/docs/module-guides/visibility) - Observation planning
+- [CLI Planets Reference](/docs/cli-reference/planets) - Full CLI command reference

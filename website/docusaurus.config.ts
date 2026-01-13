@@ -207,9 +207,9 @@ const config: Config = {
         {
           title: 'Documentation',
           items: [
-            { label: 'Getting Started', to: '/getting-started/installation' },
-            { label: 'CLI Reference', to: '/cli-reference/overview' },
-            { label: 'Python API', to: '/python-api/overview' },
+            { label: 'Getting Started', to: '/docs/getting-started/installation' },
+            { label: 'CLI Reference', to: '/docs/cli-reference/overview' },
+            { label: 'Python API', to: '/docs/python-api/overview' },
           ],
         },
         {

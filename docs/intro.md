@@ -18,11 +18,11 @@ Welcome to the astr0 documentation! astr0 is a professional astronomy calculatio
 
 | Document | Description |
 |----------|-------------|
-| [Installation](/getting-started/installation) | How to install astr0 |
-| [Quick Start](/getting-started/quickstart) | Get up and running in minutes |
-| [CLI Overview](/cli-reference/overview) | Command-line interface reference |
-| [Python API](/python-api/overview) | Using astr0 as a Python library |
-| [Verbose Mode](/guides/verbose) | See the math behind calculations |
+| [Installation](/docs/getting-started/installation) | How to install astr0 |
+| [Quick Start](/docs/getting-started/quickstart) | Get up and running in minutes |
+| [CLI Overview](/docs/cli-reference/overview) | Command-line interface reference |
+| [Python API](/docs/python-api/overview) | Using astr0 as a Python library |
+| [Verbose Mode](/docs/guides/verbose) | See the math behind calculations |
 
 ## Features
 

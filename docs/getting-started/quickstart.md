@@ -109,6 +109,6 @@ print(f"Magnitude: {mars.magnitude:+.1f}")
 
 ## Next Steps
 
-- [CLI Overview](/cli-reference/overview) — Full command reference
-- [Python API](/python-api/overview) — Library documentation
-- [Verbose Mode](/guides/verbose) — Understanding the calculations
+- [CLI Overview](/docs/cli-reference/overview) — Full command reference
+- [Python API](/docs/python-api/overview) — Library documentation
+- [Verbose Mode](/docs/guides/verbose) — Understanding the calculations

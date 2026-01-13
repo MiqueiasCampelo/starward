@@ -264,6 +264,6 @@ astr0 moon next PHASE [--jd JD]
 
 ## See Also
 
-- [Sun Module](/module-guides/sun) - Solar calculations
-- [Visibility Module](/module-guides/visibility) - Observation planning
-- [Observer Module](/module-guides/observer) - Location management
+- [Sun Module](/docs/module-guides/sun) - Solar calculations
+- [Visibility Module](/docs/module-guides/visibility) - Observation planning
+- [Observer Module](/docs/module-guides/observer) - Location management

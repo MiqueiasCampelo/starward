@@ -107,4 +107,4 @@ print(vctx.format_steps())
 
 ## Detailed Reference
 
-- [Core Modules](/python-api/modules) — Detailed module documentation
+- [Core Modules](/docs/python-api/modules) — Detailed module documentation
