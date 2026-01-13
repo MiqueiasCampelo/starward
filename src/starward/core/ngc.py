@@ -259,6 +259,29 @@ NGC = NGCCatalog()
 # =============================================================================
 # Coordinate Functions
 # =============================================================================
+#
+# Understanding Celestial Coordinates:
+#
+# Celestial coordinates are the astronomical equivalent of latitude/longitude.
+# The system projects Earth's equator and poles onto the celestial sphere.
+#
+# RIGHT ASCENSION (RA):
+#   - Measured in hours, minutes, seconds (0h to 24h)
+#   - Analogous to longitude on Earth
+#   - One hour of RA = 15° (because 360°/24h = 15°/h)
+#   - The zero point is the vernal equinox (where the Sun crosses the
+#     celestial equator heading north in March)
+#
+# DECLINATION (Dec):
+#   - Measured in degrees, arcminutes, arcseconds (-90° to +90°)
+#   - Analogous to latitude on Earth
+#   - +90° is the North Celestial Pole (near Polaris)
+#   - 0° is the celestial equator
+#   - -90° is the South Celestial Pole
+#
+# The J2000.0 epoch (January 1, 2000, 12:00 TT) is the standard reference
+# frame. Due to Earth's precession, coordinates slowly drift over time,
+# so specifying the epoch is essential for precise work.
 
 def ngc_coords(number: int) -> ICRSCoord:
     """
@@ -279,7 +302,9 @@ def ngc_coords(number: int) -> ICRSCoord:
         20h59m00.0s
     """
     obj = NGC.get(number)
-    # Convert RA from hours to degrees (hours * 15 = degrees)
+    # Convert RA from hours to degrees: 1 hour = 15° (360° / 24h)
+    # This conversion is needed because ICRSCoord internally uses degrees
+    # for consistency with standard spherical coordinate systems.
     ra_degrees = obj.ra_hours * 15.0
     return ICRSCoord.from_degrees(ra_degrees, obj.dec_degrees)
 
@@ -287,6 +312,33 @@ def ngc_coords(number: int) -> ICRSCoord:
 # =============================================================================
 # Visibility Functions
 # =============================================================================
+#
+# Visibility Concepts for Observational Astronomy:
+#
+# ALTITUDE (Elevation):
+#   - Angle above the horizon (0° to 90°)
+#   - Objects below 0° are not visible
+#   - Best viewing is typically above 30° (less atmospheric distortion)
+#   - Objects at zenith (90°) are at their best viewing conditions
+#
+# TRANSIT:
+#   - When an object crosses the meridian (the north-south line through zenith)
+#   - Objects reach their maximum altitude at transit
+#   - Transit altitude = 90° - |observer_latitude - object_declination|
+#   - Best time to observe most objects
+#
+# RISE/SET:
+#   - When an object crosses the horizon
+#   - Not all objects rise and set from all locations:
+#     * Circumpolar objects: Never set (always above horizon)
+#     * Never-rise objects: Never visible from that latitude
+#   - Rule: If |Dec| > (90° - |Lat|), object may be circumpolar or never visible
+#
+# AIRMASS:
+#   - Amount of atmosphere light must travel through
+#   - Airmass = 1 at zenith, increases toward horizon
+#   - Formula: Airmass ≈ sec(zenith_angle) = 1/cos(90° - altitude)
+#   - Airmass > 2-3 significantly degrades image quality
 
 def ngc_altitude(
     number: int,
