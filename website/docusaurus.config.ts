@@ -165,7 +165,10 @@ const config: Config = {
     image: 'img/starward-social-card.png',
 
     navbar: {
-      title: 'starward',
+      logo: {
+        alt: 'starward logo',
+        src: 'img/logo.svg',
+      },
       hideOnScroll: true,
       items: [
         {

@@ -11,6 +11,17 @@
   box-shadow: var(--ifm-navbar-shadow);
 }
 
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  img {
+    height: calc(var(--ifm-navbar-height) * 0.26) !important;
+    margin-bottom: 0.1rem;
+  }
+}
+
 .navbar__title {
   font-weight: 700;
   font-size: 1.25rem;
