@@ -28,7 +28,7 @@ export default function Hero(): JSX.Element {
             CLI and Python API with transparent, step-by-step mathematics.
           </p>
           <div className="hero__buttons">
-            <Link className="button button--primary button--lg" to="/docs/intro">
+            <Link className="button button--primary button--lg" to="/docs/">
               Get Started
             </Link>
             <Link
