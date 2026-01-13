@@ -1393,3 +1393,98 @@ def print_caldwell_stats(stats: dict) -> None:
 
         console.print(const_table)
         console.print()
+
+
+# =============================================================================
+# Finder Output
+# =============================================================================
+
+def print_finder_table(
+    title: str,
+    results: list,
+    show_catalog: bool = True,
+) -> None:
+    """
+    Print styled table of finder results.
+
+    Args:
+        title: Table title
+        results: List of FinderResult objects
+        show_catalog: Whether to show catalog column
+    """
+    console.print()
+    console.print(f"[bold cyan]{title}[/bold cyan]")
+    console.rule(style="dim")
+    console.print()
+
+    table = Table(
+        box=box.ROUNDED,
+        show_header=True,
+        header_style="bold",
+    )
+
+    if show_catalog:
+        table.add_column("Cat", style="dim", justify="center")
+    table.add_column("Designation", style="bold yellow")
+    table.add_column("Name", style=COLORS['value'], no_wrap=True)
+    table.add_column("Type", style="cyan")
+    table.add_column("Mag", justify="right")
+    table.add_column("Const", style=COLORS['muted'])
+
+    for r in results:
+        # Color magnitude based on brightness
+        mag = r.magnitude
+        if mag is None:
+            mag_str = "[dim]—[/dim]"
+        elif mag <= 5.0:
+            mag_str = f"[bold green]{mag:.1f}[/bold green]"
+        elif mag <= 8.0:
+            mag_str = f"{mag:.1f}"
+        else:
+            mag_str = f"[dim]{mag:.1f}[/dim]"
+
+        name = r.name or "[dim]—[/dim]"
+
+        # Catalog abbreviation
+        cat_abbrev = {
+            "ngc": "NGC",
+            "ic": "IC",
+            "caldwell": "C",
+            "hipparcos": "HIP",
+            "messier": "M",
+        }
+        cat_str = cat_abbrev.get(r.catalog.value, r.catalog.value.upper())
+
+        # Type name
+        type_name = r.object_type.replace("_", " ").title()
+        # Shorten common types
+        type_abbrev = {
+            "Planetary Nebula": "Plan. Neb.",
+            "Emission Nebula": "Em. Neb.",
+            "Reflection Nebula": "Refl. Neb.",
+            "Globular Cluster": "Glob. Cl.",
+            "Open Cluster": "Open Cl.",
+            "Star Cluster": "Star Cl.",
+            "Supernova Remnant": "SNR",
+            "Galaxy Pair": "Gal. Pair",
+            "Galaxy Group": "Gal. Grp",
+        }
+        type_str = type_abbrev.get(type_name, type_name)
+
+        row = []
+        if show_catalog:
+            row.append(cat_str)
+        row.extend([
+            r.designation,
+            name,
+            type_str,
+            mag_str,
+            r.constellation,
+        ])
+
+        table.add_row(*row)
+
+    console.print(table)
+    console.print()
+    console.print(f"  [dim]Found: {len(results)} objects[/dim]")
+    console.print()
