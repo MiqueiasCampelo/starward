@@ -64,15 +64,16 @@ async function generateOGImage() {
     await page.setViewport({ width: WIDTH, height: HEIGHT });
 
     console.log('Loading homepage...');
-    await page.goto(url, { waitUntil: 'networkidle0' });
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
     // Wait for fonts to load
     await page.evaluate(() => document.fonts.ready);
 
     // Wait for Vanta.js animation to initialize and render beautifully
-    // The starfield needs time to populate with stars
+    // Using domcontentloaded + longer delay since networkidle0 never fires
+    // due to continuous WebGL rendering
     console.log('Waiting for animation...');
-    await new Promise(r => setTimeout(r, 3000));
+    await new Promise(r => setTimeout(r, 5000));
 
     // Ensure output directory exists
     const outputDir = path.dirname(OUTPUT_PATH);
