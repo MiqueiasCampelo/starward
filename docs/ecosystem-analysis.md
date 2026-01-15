@@ -78,7 +78,7 @@ A **unified interface** to astronomical databases and archives. An astropy affil
 
 ---
 
-### starward (v0.3.0)
+### starward (v0.4.1)
 
 A **transparent, educational astronomy toolkit** with CLI-first design.
 

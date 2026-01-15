@@ -39,7 +39,7 @@ pip install -e ".[dev]"
 
 ```bash
 starward --version
-# starward, version 0.2.1
+# starward, version 0.4.1
 
 starward time now
 ```

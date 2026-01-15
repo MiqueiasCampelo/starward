@@ -60,4 +60,4 @@ starward sun position --verbose
 
 ## Version
 
-This documentation is for starward **v0.3.0**.
+This documentation is for starward **v0.4.1**.
