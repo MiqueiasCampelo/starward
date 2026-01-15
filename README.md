@@ -1,34 +1,14 @@
-<p align="center">
-  <img src="docs/assets/logo.png" alt="starward" width="200">
-</p>
+# starward
 
-<h1 align="center">starward</h1>
+An educational astronomy toolkit that shows its work.
 
-<p align="center">
-  <strong>An Educational Astronomy Calculation Toolkit</strong>
-</p>
+```bash
+pip install starward  # Python 3.9+
+```
 
-<p align="center">
-  <em>Show your work. Understand the cosmos.</em>
-</p>
+**Documentation**: [starward.dev](https://starward.dev)
 
-<p align="center">
-  <a href="#installation">Installation</a> •
-  <a href="#quick-start">Quick Start</a> •
-  <a href="#features">Features</a> •
-  <a href="#documentation">Documentation</a> •
-  <a href="#philosophy">Philosophy</a>
-</p>
-
----
-
-## The Problem
-
-Most astronomy software treats calculations as black boxes. You input coordinates, out come numbers. But *how* did it compute that Julian Date? *Why* does the coordinate transformation work that way?
-
-## The Solution
-
-**starward** is different. Every calculation can show its work with `--verbose` mode, transforming opaque computations into transparent learning opportunities. Whether you're a student of celestial mechanics, an amateur astronomer planning observations, or a researcher who wants to understand their tools, starward is built to illuminate.
+Most astronomy software treats calculations as black boxes. **starward** is different—every calculation can show its work with `--verbose` mode, turning opaque computations into learning opportunities.
 
 ```
 $ starward --verbose angle sep "10h00m +45d" "10h30m +46d"
@@ -54,25 +34,6 @@ $ starward --verbose angle sep "10h00m +45d" "10h30m +46d"
 
 Angular Separation: 5° 16' 37.21"
 ```
-
----
-
-## Installation
-
-```bash
-pip install starward
-```
-
-**Requirements**: Python 3.9+
-
-For development:
-```bash
-git clone https://github.com/yourusername/starward.git
-cd starward
-pip install -e ".[dev]"
-```
-
----
 
 ## Quick Start
 
@@ -162,6 +123,19 @@ starward observer default "Home"
 starward observer list
 ```
 
+### Catalogs
+
+```bash
+# Look up Messier objects
+starward messier M31
+
+# Search NGC catalog
+starward ngc 7000
+
+# Hipparcos star lookup
+starward hipparcos 32349
+```
+
 ### Constants
 
 ```bash
@@ -176,7 +150,7 @@ starward const search solar
 
 ## Features
 
-### ✦ v0.1 "First Light"
+### v0.1 "First Light"
 
 | Module | Capabilities |
 |--------|-------------|
@@ -185,7 +159,7 @@ starward const search solar
 | **Coordinates** | ICRS, Galactic, Horizontal transforms |
 | **Constants** | 30+ IAU/CODATA constants with uncertainties |
 
-### ✦ v0.2 "Steady Tracking"
+### v0.2 "Steady Tracking"
 
 | Module | Capabilities |
 |--------|-------------|
@@ -194,15 +168,21 @@ starward const search solar
 | **Observer** | Location management, TOML persistence, timezone support |
 | **Visibility** | Airmass, transit, rise/set, moon separation, night detection |
 
-### ✦ v0.3 "Planetary Motion"
+### v0.3 "Planetary Motion"
 
 | Module | Capabilities |
 |--------|-------------|
 | **Planets** | Mercury–Neptune positions, magnitude, elongation, rise/set/transit |
 
+### v0.4 "Deep Sky"
+
+| Module | Capabilities |
+|--------|-------------|
+| **Catalogs** | Messier (110), NGC (7,840), IC (5,386), Caldwell (109), Hipparcos (118,218) |
+| **Search** | Cross-catalog search by name, type, magnitude |
+
 ### Coming Soon
 
-- **v0.4**: Catalog lookups (Messier, NGC, Hipparcos)
 - **v0.5**: IAU 2006 precession/nutation, aberration
 
 ---
@@ -303,19 +283,12 @@ starward --verbose sun rise --lat 51.5 --lon -0.1
 
 ## Documentation
 
-| Document | Description |
-|----------|-------------|
-| [Getting Started](docs/getting-started.md) | Installation and first steps |
-| [Time Module](docs/time.md) | Julian dates and sidereal time |
-| [Coordinates](docs/coords.md) | Celestial coordinate systems |
-| [Angles](docs/angles.md) | Angular calculations |
-| [Sun](docs/sun.md) | Solar position and phenomena |
-| [Moon](docs/moon.md) | Lunar position and phases |
-| [Observer](docs/observer.md) | Location management |
-| [Visibility](docs/visibility.md) | Observation planning |
-| [Constants](docs/constants.md) | Astronomical constants |
-| [CLI Reference](docs/cli-reference.md) | Complete command reference |
-| [API Reference](docs/api.md) | Python library documentation |
+Full documentation is available at [starward.dev](https://starward.dev), including:
+
+- Getting started guide
+- Module guides for time, coordinates, sun, moon, planets, and catalogs
+- CLI reference
+- Python API reference
 
 ---
 
@@ -376,25 +349,9 @@ pytest -m "not slow"
 
 ---
 
-
 ## Contributing
 
-We welcome contributions of all kinds—code, documentation, tests, and ideas! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for the latest guidelines and step-by-step instructions.
-
-**How to get started:**
-- Fork the repo and create a branch from `master`
-- Follow the code style and testing standards (see CONTRIBUTING.md)
-- Run all tests before submitting a pull request
-- For major changes, open an issue to discuss your idea first
-
-**Areas especially seeking help:**
-- Higher-precision algorithms (VSOP87, ELP/MPP02)
-- Planetary ephemerides
-- Additional coordinate systems
-- Documentation improvements
-- Test coverage expansion
-
-We strive to make contributing easy and rewarding for everyone. Thank you for helping make starward shine brighter!
+Contributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
@@ -412,13 +369,3 @@ starward builds upon decades of astronomical research. Key references:
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
-
----
-
-<p align="center">
-  <em>Per aspera ad astra</em> ✦ <em>Through hardships to the stars</em>
-</p>
-
-<p align="center">
-  Made with 🔭 for the curious
-</p>
